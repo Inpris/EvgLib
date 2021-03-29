@@ -1,1 +1,18 @@
 <p>primary-button works!</p>
+
+<div class="choose-size">
+  <div id="large" class="choose-size__item" (click)="set_className(3)">
+    <p class="choose-size__p">Large</p>
+  </div>
+  <div id="default" class="choose-size__item" (click)="set_className(2)">
+    <p class="choose-size__p">Default</p>
+  </div>
+  <div id="small" class="choose-size__item" (click)="set_className(1)">
+    <p class="choose-size__p">Small</p>
+  </div>
+</div>
+
+<div [class]="className" >
+  <p class="primary-button__p">Primary</p>
+</div>
+
