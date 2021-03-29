@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PrimaryButtonComponent } from './button/primary-button/primary-button.component';
+import {PrimaryButtonModule} from './button/primary-button/primary-button.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PrimaryButtonComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    PrimaryButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
