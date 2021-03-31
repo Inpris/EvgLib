@@ -1,0 +1,325 @@
+@color-blue: #1976d2;
+
+.primary-button{
+
+  &__small {
+    width: 80px;
+    height: 32px;
+
+    background-color: @color-blue;
+
+    color: white;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #50a0f1;
+    }
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+
+    background-color: @color-blue;
+
+    color: white;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #50a0f1;
+    }
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+
+    background-color: @color-blue;
+
+    color: white;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #50a0f1;
+    }
+  }
+}
+
+.default-button {
+
+  &__small {
+    width: 80px;
+    height: 32px;
+
+    background-color: white;
+    color: black;
+    border: 1px solid darkgray;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      color: @color-blue;
+      border: 1px solid @color-blue;
+    }
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+
+    background-color: white;
+    color: black;
+    border: 1px solid darkgray;
+
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      color: @color-blue;
+      border: 1px solid @color-blue;
+    }
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+
+    background-color: white;
+    color: black;
+    border: 1px solid darkgray;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      color: @color-blue;
+      border: 1px solid @color-blue;
+    }
+  }
+
+  //&danger {
+  //  color: #ff0026;
+  //  border: 1px dashed #ff0026;
+  //
+  //  &:hover {
+  //    color: #ff1f41;
+  //    border: 1px dashed #ff1f41;
+  //  }
+  //}
+}
+
+.dashed-button {
+  &__small {
+    width: 80px;
+    height: 32px;
+
+    background-color: white;
+    color: black;
+    text-align: center;
+
+    border: 1px dashed darkgray;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      color: @color-blue;
+      border: 1px dashed @color-blue;
+    }
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+
+    background-color: white;
+    color: black;
+    text-align: center;
+
+    border: 1px dashed darkgray;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      color: @color-blue;
+      border: 1px dashed @color-blue;
+    }
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+
+    background-color: white;
+    color: black;
+    text-align: center;
+
+    border: 1px dashed darkgray;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+    cursor: pointer;
+    //& - класс, в котором находишься
+    &:hover {
+      color: @color-blue;
+      border: 1px dashed @color-blue;
+    }
+  }
+
+  //&danger {
+  //  color: #ff0026;
+  //  border: 1px dashed #ff0026;
+  //
+  //  &:hover {
+  //    color: #ff1f41;
+  //    border: 1px dashed #ff1f41;
+  //  }
+  //}
+}
+
+p {
+  margin: auto;
+}
+
+.danger-button {
+  &__small {
+    width: 80px;
+    height: 32px;
+
+    color: white;
+    background-color: #ff0026;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #ff1f41;
+    }
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+
+    color: white;
+    background-color: #ff0026;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #ff1f41;
+    }
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+
+    color: white;
+    background-color: #ff0026;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #ff1f41;
+    }
+  }
+}
+//.choose-size{
+//  display: inline-flex;
+//  height: 40px;
+//  margin: 15px;
+//
+//  border-radius: 2px;
+//  cursor: pointer;
+//
+//  &__item{
+//    width: 86px;
+//    color: black;
+//    border: 1px solid darkgray;
+//
+//    &:hover{
+//      color: @color-blue;
+//      border: 1px solid @color-blue;
+//      box-shadow: 0 2px 2px @color-blue;
+//    }
+//  }
+//
+//  &__p {
+//    text-align: center;
+//    margin: 7px auto;
+//  }
+//}

@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {PrimaryButtonModule} from './button/primary-button/primary-button.module';
+import {ButtonModule} from './button/button.module';
+import { SpinnerComponent } from './spinner/spinner.component';
+import {SpinnerModule} from './spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import {PrimaryButtonModule} from './button/primary-button/primary-button.module
   ],
   imports: [
     BrowserModule,
-    PrimaryButtonModule,
+    ButtonModule,
+    SpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
