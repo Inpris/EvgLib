@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+export type SpinnerType = '' | 'merging_circles' | 'sticks' | 'one_speed' | 'one_speed_in_circle' | 'stop-down' | 'circles' | 'endangered_circles';
+export type SpinnerSize = 'little' | 'default';
 
 @Component({
   selector: 'app-spinner',
@@ -7,6 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpinnerComponent implements OnInit {
 
+  @Input() public spinnerType: SpinnerType = 'sticks';
+  @Input() public spinnerSize: SpinnerSize = 'default';
+
+  public get className(): string {
+    return `${this.spinnerType}`;
+  }
+  /* -${this.spinnerSize} - можно сделать несколько размеров спинеров таким образом,
+  но удобнее будет выбирать размер font-size в зависимости от ситуации,
+  для этого нужно удалить это свойство из стиля в файле .less и добавиь его в html,
+  где используется элемент
+   */
   constructor() { }
 
   ngOnInit(): void {

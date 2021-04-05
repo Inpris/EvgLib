@@ -53,7 +53,8 @@
     background-color: @color-blue;
 
     color: white;
-    text-align: center;
+    //text-align: center;
+    text-align: left;
 
     margin: auto;
     display: flex;
@@ -66,6 +67,132 @@
     &:hover {
       background-color: #50a0f1;
     }
+  }
+}
+
+.spinner-button {
+  &__small {
+    width: 80px;
+    height: 32px;
+
+    background-color: #abff00;
+
+    color: black;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #b8ff35;
+    }
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+
+    background-color: #abff00;
+
+    color: black;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #b8ff35;
+    }
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+
+    background-color: #abff00;
+
+    color: black;
+    //text-align: center;
+    text-align: left;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+    &:hover {
+      background-color: #b8ff35;
+    }
+  }
+}
+
+.loading-spinner-button {
+  &__small {
+    width: 80px;
+    height: 32px;
+
+    background-color: #b8ff35;
+
+    color: gray;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+
+    background-color: #b8ff35;
+
+    color: gray;
+    text-align: center;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+
+    background-color: #b8ff35;
+
+    color: gray;
+    //text-align: center;
+    text-align: left;
+
+    margin: auto;
+    display: flex;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
   }
 }
 
@@ -252,7 +379,7 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
     &:hover {
-      background-color: #ff1f41;
+      background-color: #ff3554;
     }
   }
 
@@ -273,7 +400,7 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
     &:hover {
-      background-color: #ff1f41;
+      background-color: #ff3554;
     }
   }
 
@@ -294,7 +421,7 @@ p {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
     &:hover {
-      background-color: #ff1f41;
+      background-color: #ff3554;
     }
   }
 }
