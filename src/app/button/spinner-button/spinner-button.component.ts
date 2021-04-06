@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SpinnerType} from '../../spinner/spinner.component';
-import {TButtonColor, TButtonSize, TButtonType} from '../button.component';
+import {TButtonLoading, TButtonSize, TButtonType} from '../button.component';
 
 @Component({
   selector: 'app-spinner-button',
@@ -11,7 +11,7 @@ export class SpinnerButtonComponent implements OnInit {
 
   type: TButtonType = 'spinner';
   size: TButtonSize = 'large';
-  color: TButtonColor = '';
+  loading: TButtonLoading = '';
   spinnerType: SpinnerType = '';
 
   // width: string = 'width: 0';
@@ -22,22 +22,22 @@ export class SpinnerButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // public load_spinner(): void {
-  //   if (this.spinnerType === '') {
-  //     this.spinnerType = 'endangered_circles';
-  //     this.color = 'loading-';
-  //
-  //   } else if (this.spinnerType === 'endangered_circles') {
-  //     this.spinnerType = 'merging_circles';
-  //     this.color = 'loading-';
-  //
-  //   } else if (this.spinnerType === 'merging_circles') {
-  //     this.spinnerType = 'one_speed_in_circle';
-  //     this.color = 'loading-';
-  //
-  //   } else {
-  //     this.spinnerType = '';
-  //     this.color = '';
-  //   }
-  // }
+  public load_spinner(): void {
+    if (this.spinnerType === '') {
+      this.spinnerType = 'endangered_circles';
+      this.loading = 'loading-';
+
+    } else if (this.spinnerType === 'endangered_circles') {
+      this.spinnerType = 'merging_circles';
+      this.loading = 'loading-';
+
+    } else if (this.spinnerType === 'merging_circles') {
+      this.spinnerType = 'one_speed_in_circle';
+      this.loading = 'loading-';
+
+    } else {
+      this.spinnerType = '';
+      this.loading = '';
+    }
+  }
 }

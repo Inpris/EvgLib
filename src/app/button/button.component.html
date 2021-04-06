@@ -1,13 +1,15 @@
 <div [class]="className" (click)="load_spinner()">
   <div class="row" style="margin: auto;">
 
-    <div *ngIf="isSpinner" >
-      <app-spinner [spinnerType]="spinnerType" style="font-size: 4px; float: left; margin-right: 10px; margin-left: 0"></app-spinner>
+    <div *ngIf="isSpinner"> <!--class="column"-->
+      <app-spinner [spinnerType]="spinnerType" style="font-size: 4px; float: left; margin-right: 10px;"></app-spinner>
     </div>
 
+<!--    <div class="column">-->
       <p>
         <ng-content></ng-content>
       </p>
+<!--    </div>-->
   </div>
 </div>
 

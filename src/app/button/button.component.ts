@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {SpinnerType} from '../spinner/spinner.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { SpinnerType } from '../spinner/spinner.component';
 
 export type TButtonSize = 'small' | 'default' | 'large';
 export type TButtonType = 'default' | 'primary' | 'dashed'| 'danger' | 'spinner';
-export type TButtonColor = '' | 'loading-';
+export type TButtonLoading = '' | 'loading-';
 
 @Component({
   selector: 'app-button',
@@ -14,7 +14,7 @@ export type TButtonColor = '' | 'loading-';
 export class ButtonComponent implements OnInit {
   @Input() public type: TButtonType = 'primary';
   @Input() public size: TButtonSize = 'large';
-  @Input() public loading: TButtonColor = '';
+  @Input() public loading: TButtonLoading = '';
   spinnerType: SpinnerType = '';
   isSpinner: boolean = false;
 
@@ -36,10 +36,10 @@ export class ButtonComponent implements OnInit {
 
       } else if (this.spinnerType === 'endangered_circles') {
         // this.isSpinner = true;
-        this.spinnerType = 'merging_circles';
+        this.spinnerType = 'little-merging_circles';
         this.loading = 'loading-';
 
-      } else if (this.spinnerType === 'merging_circles') {
+      } else if (this.spinnerType === 'little-merging_circles') {
         // this.isSpinner = true;
         this.spinnerType = 'one_speed_in_circle';
         this.loading = 'loading-';

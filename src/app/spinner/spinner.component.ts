@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-export type SpinnerType = '' | 'merging_circles' | 'sticks' | 'one_speed' | 'one_speed_in_circle' | 'stop-down' | 'circles' | 'endangered_circles';
-export type SpinnerSize = 'little' | 'default';
+export type SpinnerType = 'little-merging_circles' | '' | 'merging_circles' | 'sticks' | 'one_speed' | 'one_speed_in_circle' | 'stop-down' | 'circles' | 'endangered_circles';
+// export type SpinnerSize = 'little-' | '';
 
 @Component({
   selector: 'app-spinner',
@@ -11,7 +11,6 @@ export type SpinnerSize = 'little' | 'default';
 export class SpinnerComponent implements OnInit {
 
   @Input() public spinnerType: SpinnerType = 'sticks';
-  @Input() public spinnerSize: SpinnerSize = 'default';
 
   public get className(): string {
     return `${this.spinnerType}`;
