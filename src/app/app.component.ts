@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TButtonSize, TButtonType} from './button/button.component';
+import {TButtonColor, TButtonSize, TButtonType} from './button/button.component';
 import { SpinnerType } from './spinner/spinner.component';
 
 @Component({
@@ -13,5 +13,7 @@ export class AppComponent {
 
   type: TButtonType = 'primary';
   size: TButtonSize = 'large';
+  loading: TButtonColor = '';
   spinnerType: SpinnerType = '';
+
 }

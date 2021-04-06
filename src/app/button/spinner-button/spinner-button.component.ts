@@ -22,22 +22,22 @@ export class SpinnerButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public load_spinner(): void {
-    if (this.spinnerType === '') {
-      this.spinnerType = 'endangered_circles';
-      this.color = 'loading-';
-
-    } else if (this.spinnerType === 'endangered_circles') {
-      this.spinnerType = 'merging_circles';
-      this.color = 'loading-';
-
-    } else if (this.spinnerType === 'merging_circles') {
-      this.spinnerType = 'one_speed_in_circle';
-      this.color = 'loading-';
-
-    } else {
-      this.spinnerType = '';
-      this.color = '';
-    }
-  }
+  // public load_spinner(): void {
+  //   if (this.spinnerType === '') {
+  //     this.spinnerType = 'endangered_circles';
+  //     this.color = 'loading-';
+  //
+  //   } else if (this.spinnerType === 'endangered_circles') {
+  //     this.spinnerType = 'merging_circles';
+  //     this.color = 'loading-';
+  //
+  //   } else if (this.spinnerType === 'merging_circles') {
+  //     this.spinnerType = 'one_speed_in_circle';
+  //     this.color = 'loading-';
+  //
+  //   } else {
+  //     this.spinnerType = '';
+  //     this.color = '';
+  //   }
+  // }
 }

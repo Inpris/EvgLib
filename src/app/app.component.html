@@ -322,62 +322,33 @@
     <div class="column">
       <h3 style="margin: auto">Primary buttons</h3>
 
-      <div class="row">
-        <app-button size="large" type="primary" class="row">Large / Primary</app-button>
-      </div>
-
-      <div class="row">
-        <app-button size="default" type="primary" class="row">Default / Primary</app-button>
-      </div>
-
-      <div class="row">
-        <app-button size="small" type="primary">Small/Prime</app-button>
-      </div>
+      <app-button size="large" type="primary" class="row">Large / Primary</app-button>
+      <app-button size="default" type="primary" class="row">Default / Primary</app-button>
+      <app-button size="small" type="primary" class="row">Small/Prime</app-button>
     </div>
 
     <div class="column">
       <h3 style="margin: auto">Default buttons</h3>
-      <div class="row">
-        <app-button size="large" type="default" class="row">Large / Default</app-button>
-      </div>
 
-      <div class="row">
-        <app-button size="default" type="default" class="row">Default / Default</app-button>
-      </div>
-
-      <div class="row">
-        <app-button size="small" type="default" class="row">Small/Def</app-button>
-      </div>
+      <app-button size="large" type="default" class="row">Large / Default</app-button>
+      <app-button size="default" type="default" class="row">Default / Default</app-button>
+      <app-button size="small" type="default" class="row">Small/Def</app-button>
     </div>
 
     <div class="column">
       <h3 style="margin: auto">Dashed buttons</h3>
-      <div class="row">
-        <app-button size="large" type="dashed" class="row">Large / Dashed</app-button>
-      </div>
 
-      <div class="row">
-        <app-button size="default" type="dashed" class="row">Default / Dashed</app-button>
-      </div>
-
-      <div class="row">
-        <app-button size="small" type="dashed" class="row">Small/Dash</app-button>
-      </div>
+      <app-button size="large" type="dashed" class="row">Large / Dashed</app-button>
+      <app-button size="default" type="dashed" class="row">Default / Dashed</app-button>
+      <app-button size="small" type="dashed" class="row">Small/Dash</app-button>
     </div>
 
     <div class="column">
       <h3 style="margin: auto">Danger buttons</h3>
-      <div class="row">
-        <app-button size="large" type="danger" class="row">Large / Danger</app-button>
-      </div>
 
-      <div class="row">
-        <app-button size="default" type="danger" class="row">Default / Danger</app-button>
-      </div>
-
-      <div class="row">
-        <app-button size="small" type="danger" class="row">Small/Dang</app-button>
-      </div>
+      <app-button size="large" type="danger" class="row">Large / Danger</app-button>
+      <app-button size="default" type="danger" class="row">Default / Danger</app-button>
+      <app-button size="small" type="danger" class="row">Small/Dang</app-button>
     </div>
   </div>
 
@@ -388,7 +359,8 @@
   <div class="row">
     <!-- кнопки со спиннером -->
     <div class="column">
-      <app-spinner-button></app-spinner-button>
+      <!--      <app-spinner-button></app-spinner-button>-->
+      <app-button size="large" type="spinner" style="width: 100%;">New spinner</app-button>
     </div>
   </div>
 
@@ -406,7 +378,6 @@
     <div class="column">
       <app-spinner spinnerType="stop-down" style="margin: auto"></app-spinner>
     </div>
-    <!-- <app-spinner spinnerType="one_speed"></app-spinner>-->
   </div>
 
   <div class="row" style="height: 150px">
@@ -417,6 +388,7 @@
       <app-spinner spinnerType="endangered_circles" style="margin: auto"></app-spinner>
     </div>
     <div class="column">
+      <!--      не получается изменить размер спиннера, берёт размер из less-->
       <app-spinner spinnerType="merging_circles" style="margin: auto; font-size: 60px"></app-spinner>
     </div>
   </div>
