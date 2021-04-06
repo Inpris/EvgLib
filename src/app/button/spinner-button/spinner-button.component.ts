@@ -22,22 +22,47 @@ export class SpinnerButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // public load_spinner(): void {
+  //   if (this.spinnerType === '') {
+  //     this.spinnerType = 'endangered_circles';
+  //     this.loading = 'loading-';
+  //
+  //   } else if (this.spinnerType === 'endangered_circles') {
+  //     this.spinnerType = 'merging_circles';
+  //     this.loading = 'loading-';
+  //
+  //   } else if (this.spinnerType === 'merging_circles') {
+  //     this.spinnerType = 'one_speed_in_circle';
+  //     this.loading = 'loading-';
+  //
+  //   } else {
+  //     this.spinnerType = '';
+  //     this.loading = '';
+  //   }
+  // }
+
   public load_spinner(): void {
-    if (this.spinnerType === '') {
-      this.spinnerType = 'endangered_circles';
-      this.loading = 'loading-';
+    if (this.type === 'spinner') {
+      if (this.spinnerType === '') {
+        // this.isSpinner = true;
+        this.spinnerType = 'endangered_circles';
+        this.loading = 'loading-';
 
-    } else if (this.spinnerType === 'endangered_circles') {
-      this.spinnerType = 'merging_circles';
-      this.loading = 'loading-';
+      } else if (this.spinnerType === 'endangered_circles') {
+        // this.isSpinner = true;
+        this.spinnerType = 'little-merging_circles';
+        this.loading = 'loading-';
 
-    } else if (this.spinnerType === 'merging_circles') {
-      this.spinnerType = 'one_speed_in_circle';
-      this.loading = 'loading-';
+      } else if (this.spinnerType === 'little-merging_circles') {
+        // this.isSpinner = true;
+        this.spinnerType = 'one_speed_in_circle';
+        this.loading = 'loading-';
 
-    } else {
-      this.spinnerType = '';
-      this.loading = '';
+      } else {
+        // this.isSpinner = false;
+        this.spinnerType = '';
+        this.loading = '';
+      }
     }
   }
 }
