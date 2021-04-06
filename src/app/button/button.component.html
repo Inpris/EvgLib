@@ -1,11 +1,11 @@
 <div [class]="className" (click)="load_spinner()">
-  <div class="row" style="height: 94%; margin: auto; padding: 5px;">
+  <div class="row" style="margin: auto;">
 
     <div *ngIf="isSpinner" >
-      <app-spinner [spinnerType]="spinnerType" style="font-size: 4px; float: left; margin-right: 10px"></app-spinner>
+      <app-spinner [spinnerType]="spinnerType" style="font-size: 4px; float: left; margin-right: 10px; margin-left: 0"></app-spinner>
     </div>
 
-      <p style="margin: auto;">
+      <p>
         <ng-content></ng-content>
       </p>
   </div>

@@ -229,13 +229,13 @@
     color: @color_spinner;
     font-size: 20px;
     //text-indent: -9999em;
-    overflow: hidden;
+    overflow: hidden; //Отображается только область внутри блока, в котором находится этот спиннер, остальное будет скрыто.
     width: 1em; // если поменять значение, круги пропадут и будет крутиться кривой полумесяц,
     // из-за этого не получается установить нормальный размер на странице, только такой же, как в кнопке
     // даже если в app.component.html установить style="font-size: 60px" или "height: 3em" и "width: 3em"
     height: 1em;
     border-radius: 50%;
-    margin: 10px 5px;
+    margin: 10px 0;
     position: relative;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
@@ -319,7 +319,8 @@
   }
 
   .loader {
-    margin: auto;
+    margin: 3px 0;
+    text-align: left;
     //font-size: 5px;
     position: relative;
     //text-indent: -9999em;
