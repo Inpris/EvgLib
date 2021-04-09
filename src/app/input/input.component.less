@@ -6,26 +6,25 @@
 //}
 
 #parent {
-  float		: left;
-  height		: 50%;
-  margin-bottom	: -20px;
+  display: table; // нужно для выравнивания текста по вертикали
 }
 
 #child {
-  overflow-y: hidden;
+  overflow-x: hidden;
 
-  display: flex;
-  white-space: nowrap;
-  clear		: both;
-  position	: relative;
+  white-space: nowrap; // для того, чтобы текст не переходил на другую строку
   height: 40px;
   width: 170px;
+  max-height: 40px;
+  max-width: 170px;
+  //min-height: 40px; // не понимаю, почему это не помогает сохранить ту же высоту блока, даже если весь текст удалён
+  //min-width: 170px;
 
   border-radius: 3px;
   border: 1px solid black;
 
-  //margin-bottom: 10px;
-  //overflow: auto;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, .25); //сделать тень внутрь блока
+  display: table-cell!important; // связывает с родительским блоком, объявленным как таблица
+  vertical-align: middle; // и делает текст вертикально по центру
 
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, .25); //сделать тень внутрь блока
 }
