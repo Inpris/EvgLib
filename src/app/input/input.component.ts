@@ -23,4 +23,9 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public skillsHandleEnter(event): void {
+    event.preventDefault();
+    // перехват enter-ов, ПАЧИМУ НИРАБОТАИТ :(
+  }
+
 }

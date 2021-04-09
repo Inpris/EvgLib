@@ -1,5 +1,5 @@
 <div id="parent" >
-  <div id="child" contenteditable="true">
+  <div id="child" contenteditable="true" (keyup.enter)="skillsHandleEnter($event)">
     <p style="color: grey">
       <ng-content></ng-content>
       {{content}}
