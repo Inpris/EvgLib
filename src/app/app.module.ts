@@ -6,6 +6,7 @@ import {ButtonModule} from './button/button.module';
 import { SpinnerComponent } from './spinner/spinner.component';
 import {SpinnerModule} from './spinner/spinner.module';
 import {SpinnerButtonModule} from './button/spinner-button/spinner-button.module';
+import {InputModule} from './input/input.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {SpinnerButtonModule} from './button/spinner-button/spinner-button.module
     ButtonModule,
     SpinnerModule,
     SpinnerButtonModule,
+    InputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
