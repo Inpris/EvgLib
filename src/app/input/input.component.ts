@@ -12,7 +12,12 @@ export type size = '' | 'large';
 export class InputComponent implements OnInit {
   @Input() public class_name: className = 'default';
   @Input() public size: size = 'large';
-  content: string = 'text';
+  public content: string = 'text';
+  public textId: string = 'empty';
+
+  public get ID(): string{
+    return `${this.textId}`;
+  }
 
   public get className(): string{
     return `${this.class_name}__${this.size}`;
@@ -23,9 +28,14 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public skillsHandleEnter(event): void {
+  public stopEnter(event): void {
     event.preventDefault();
     // перехват enter-ов, ПАЧИМУ НИРАБОТАИТ :(
   }
 
+  public getTextID(event): void {
+    this.content = '';
+    this.textId = 'fill';
+    // работает только если полностью удалить this.content вручную и нажать backspace ещё раз
+  }
 }
