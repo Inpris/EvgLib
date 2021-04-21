@@ -29,7 +29,10 @@ export class InputComponent implements OnInit {
   }
 
   public stopEnter(event): void {
-    event.preventDefault();
+    if (event.key === 'Enter') {
+      // debugger
+      event.preventDefault();
+    }
     // перехват enter-ов, ПАЧИМУ НИРАБОТАИТ :(
   }
 

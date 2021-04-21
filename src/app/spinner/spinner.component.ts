@@ -10,7 +10,7 @@ export type SpinnerType = 'little-merging_circles' | '' | 'merging_circles' | 's
 })
 export class SpinnerComponent implements OnInit {
 
-  @Input() public spinnerType: SpinnerType = 'sticks';
+  @Input() public spinnerType: SpinnerType = '';
 
   public get className(): string {
     return `${this.spinnerType}`;

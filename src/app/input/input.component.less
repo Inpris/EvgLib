@@ -1,9 +1,3 @@
-//.default {
-//  &__large {
-//    overflow: hidden;
-//
-//  }
-//}
 
 #parent {
   display: table; // нужно для выравнивания текста по вертикали
@@ -21,17 +15,19 @@
 
   border-radius: 3px;
   border: 1px solid black;
-
+  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
   display: table-cell!important; // связывает с родительским блоком, объявленным как таблица
   vertical-align: middle;        // и делает текст расположенным вертикально по центру
-
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, .25); //сделать тень внутрь блока
 }
 
+
 #empty {
+  margin-left: 7px;
   color: grey;
 }
 
 #fill {
+  margin-left: 7px;
+  margin-top: auto;
   color: black;
 }

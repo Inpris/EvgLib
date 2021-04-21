@@ -57,6 +57,7 @@
       "ignore-params",
       "ignore-properties" // разрешает аннотацию типа, даже если переменной сразу присвоено значение
     ],
+    "no-trailing-whitespace": false,
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
