@@ -308,12 +308,12 @@
 <!--<head>-->
 <!--  <title></title>-->
 <!--</head>-->
+<div *ngIf="isLoadingPage" class="spinner_box_block_all">
+  <app-spinner spinnerType="endangered_circles"></app-spinner>
+</div>
+
 <div class="BiggestDiv">
   <div [class]="page">
-
-    <div *ngIf="isLoadingPage" class="spinner_box_block_all">
-      <app-spinner spinnerType="merging_circles"></app-spinner>
-    </div>
 
     <div class="content" role="main">
 
