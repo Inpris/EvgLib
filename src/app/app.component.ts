@@ -16,27 +16,42 @@ export class AppComponent {
 
   isSpinner: boolean = false;
   isLoadingPage: boolean = false;
-  page: string = '';
+  page: string = 'nullPage';
+  i: number = 0;
 
   public load(): void {
     this.isSpinner = true;
-    setTimeout(this.stopLoad, 15000);
+
+    // if (this.i === 0) { // выключает спиннер по клику
+    //   this.isSpinner = true;
+    //   this.i = 1;
+    // }
+    // else if (this.i === 1) {
+    //   this.isSpinner = false;
+    //   this.i = 0;
+    // }
+
+    setTimeout(() => { this.isSpinner = false; }, 5000);
   }
 
-  public stopLoad(): void {
+  public stopLoad(): void { // не понимаю, почему не работает, если передать имя этой функии в setTimeout
     this.isSpinner = false;
+
+    console.log('HELLO, HELLO, this.isSpinner = ', this.isSpinner);
+    // this.isSpinner = false, почему не меняется визуальное отображение
   }
 
   public pageIsLoading(): void {
-    this.page = 'loadingPage';
     this.isLoadingPage = true;
+    this.page = 'loadingPage';
 
-    setTimeout(this.stopPageIsLoading, 15000);
+    // setTimeout(this.stopPageIsLoading, 5000);
+    setTimeout(() => { this.isLoadingPage = false; this.page = ''; }, 5000);
   }
 
   public stopPageIsLoading(): void {
     this.isLoadingPage = false;
-    this.page = '';
+    this.page = 'nullPage';
   }
 
   constructor() {

@@ -16,30 +16,45 @@
   margin: auto;
 }
 
-.biggestDiv {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+
+html {
+  min-height: 100%;
+}
+
+.BiggestDiv {
+  min-height: 100%;
+  position: relative;
 }
 
 .spinner_box_block_all {
-  height:140px;
-  width: 140px;
-  margin: auto;
+  height: 80px;
+  width: 80px;
+  margin: 200px auto;
   position: absolute;
+  z-index: 999;
 
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 999;
+}
+
+.nullPage {
+  width: 100%;
+  height: 100%;
 }
 
 .loadingPage {
-  //position: absolute;
-  min-height: 100%;
+  position: absolute;
   z-index: 998;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  //background-color: rgba(0,0,0,0.5); /*затемним фон*/
   background-color: grey;
   opacity: 0.5;
 }

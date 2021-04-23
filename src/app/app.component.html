@@ -6,7 +6,7 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!--<html>-->
+<html>
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -308,12 +308,11 @@
 <!--<head>-->
 <!--  <title></title>-->
 <!--</head>-->
-<!--<body>-->
-<div class="biggestDiv">
+<div class="BiggestDiv">
   <div [class]="page">
 
     <div *ngIf="isLoadingPage" class="spinner_box_block_all">
-      <app-spinner class="one_speed_in_circle"></app-spinner>
+      <app-spinner spinnerType="merging_circles"></app-spinner>
     </div>
 
     <div class="content" role="main">
@@ -346,7 +345,7 @@
         <div class="column">
           <h3 class="elem_center">Danger buttons</h3>
 
-          <app-button size="large" type="danger" class="row">Large / Danger</app-button>
+          <app-button size="large" type="danger" class="row" >Large / Danger</app-button>
           <app-button size="default" type="danger" class="row">Default / Danger</app-button>
           <app-button size="small" type="danger" class="row">Small/Dang</app-button>
         </div>
@@ -357,12 +356,13 @@
       </div>
 
       <div class="row">
-        <!-- кнопка со спиннером -->
+        <!-- кнопка со спиннером, почему-то  (click) вызывается даже если просто нажать на div column-->
         <div class="column">
           <app-button size="large" type="spinner" [isSpin]="isSpinner" (click)="load()">New spinner</app-button>
         </div>
 
-        <!-- спиннер поверх страницы на пару десятков секунд -->
+        <!-- спиннер поверх страницы на пару десятков секунд
+        почему при загрузке страницы элементы не блокируются даже с z-index: 998. -->
         <div class="column">
           <app-button size="large" type="danger" (click)="pageIsLoading()">
             Loading page
@@ -407,9 +407,7 @@
           <app-spinner spinnerType="merging_circles" style="margin: auto; font-size: 60px"></app-spinner>
         </div>
       </div>
-
     </div>
   </div>
 </div>
-<!--</body>-->
-<!--</html>-->
+</html>
