@@ -358,8 +358,18 @@
       <div class="row">
         <!-- кнопка со спиннером, почему-то  (click) вызывается даже если просто нажать на div column-->
         <div class="column">
-          <app-button size="large" type="spinner" [isSpin]="isSpinner" (click)="load()">New spinner</app-button>
+          <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()" class="row">New spinner</app-button>
+          <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()" class="row">New spinner</app-button>
+          <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()" class="row">New spinner</app-button>
         </div>
+
+<!--        <div class="column">-->
+<!--          -->
+<!--        </div>-->
+
+<!--        <div class="column">-->
+<!--          -->
+<!--        </div>-->
 
         <!-- спиннер поверх страницы на пару десятков секунд
         почему при загрузке страницы элементы не блокируются даже с z-index: 998. -->

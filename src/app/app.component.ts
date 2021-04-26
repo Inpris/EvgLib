@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {TButtonSize, TButtonType} from './button/button.component';
-import {SpinnerType} from './spinner/spinner.component';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +13,15 @@ export class AppComponent {
   type: TButtonType = 'primary';
   size: TButtonSize = 'large';
 
-  isSpinner: boolean = false;
+  isSpinnerLarge: boolean = false;
+  isSpinnerDefault: boolean = false;
+  isSpinnerSmall: boolean = false;
   isLoadingPage: boolean = false;
   page: string = 'nullPage';
   i: number = 0;
 
-  public load(): void {
-    this.isSpinner = true;
+  public loadLarge(): void {
+    this.isSpinnerLarge = true;
 
     // if (this.i === 0) { // выключает спиннер по клику
     //   this.isSpinner = true;
@@ -31,14 +32,17 @@ export class AppComponent {
     //   this.i = 0;
     // }
 
-    setTimeout(() => { this.isSpinner = false; }, 5000);
+    setTimeout(() => { this.isSpinnerLarge = false; }, 5000);
   }
 
-  public stopLoad(): void { // не понимаю, почему не работает, если передать имя этой функии в setTimeout
-    this.isSpinner = false;
+  public loadDefault(): void {
+    this.isSpinnerDefault = true;
+    setTimeout(() => { this.isSpinnerDefault = false; }, 5000);
+  }
 
-    console.log('HELLO, HELLO, this.isSpinner = ', this.isSpinner);
-    // this.isSpinner = false, почему не меняется визуальное отображение
+  public loadSmall(): void {
+    this.isSpinnerSmall = true;
+    setTimeout(() => { this.isSpinnerSmall = false; }, 5000);
   }
 
   public pageIsLoading(): void {
@@ -49,13 +53,10 @@ export class AppComponent {
     setTimeout(() => { this.isLoadingPage = false; this.page = ''; }, 5000);
   }
 
-  public stopPageIsLoading(): void {
+  public stopPageIsLoading(): void { // не понимаю, почему не работает, если передать имя этой функии в setTimeout
     this.isLoadingPage = false;
-    this.page = 'nullPage';
+    this.page = '';
   }
 
-  constructor() {
-
-  }
-
+  constructor() {}
 }

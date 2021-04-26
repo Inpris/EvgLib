@@ -1,4 +1,4 @@
-<div id="parent">
+<div [className]="className" id="parent">
   <div id="child" contenteditable="true" (keydown)="stopEnter($event)" (focus)="getTextID($event)">
     <p [id]="textId">
         <ng-content></ng-content>

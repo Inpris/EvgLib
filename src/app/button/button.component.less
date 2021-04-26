@@ -2,216 +2,114 @@
 
 .primary-button{
 
-  &__small {
-    width: 80px;
-    height: 32px;
-
+  &__small, &__default, &__large {
     background-color: @color-blue;
-
     color: white;
     text-align: center;
-
     margin: auto;
     display: flex;
-
     border-radius: 3px;
-
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
     &:hover {
       background-color: #50a0f1;
     }
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
   }
 
   &__default {
     width: 100px;
     height: 40px;
-
-    background-color: @color-blue;
-
-    color: white;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      background-color: #50a0f1;
-    }
   }
 
   &__large {
     width: 125px;
     height: 50px;
-
-    background-color: @color-blue;
-
-    color: white;
-    text-align: center;
-    //text-align: left; //лучше устанавливать только при необходимости в определённой задаче
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      background-color: #50a0f1;
-    }
   }
 }
 
 .spinner-button {
-  &__small {
-    width: 80px;
-    height: 32px;
 
+  &__small, &__default, &__large {
     background-color: #abff00;
-
     color: black;
     text-align: center;
-
     margin: auto;
     display: flex;
-
     border-radius: 3px;
-
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
     &:hover {
       background-color: #b8ff35;
     }
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+    font-size: 11px;
   }
 
   &__default {
     width: 100px;
     height: 40px;
-
-    background-color: #abff00;
-
-    color: black;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      background-color: #b8ff35;
-    }
-  }
-
-  &__large {
-    width: 125px;
-    height: 50px;
-
-    background-color: #abff00;
-
-    color: black;
-    text-align: center;
-    //text-align: left;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      background-color: #b8ff35;
-    }
-  }
-}
-
-.loading-spinner-button {
-  &__small {
-    width: 80px;
-    height: 32px;
-
-    background-color: #b8ff35;
-
-    color: gray;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-  }
-
-  &__default {
-    width: 100px;
-    height: 40px;
-
-    background-color: #b8ff35;
-
-    color: gray;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    font-size: 13px;
   }
 
   &__large {
     width: 125px;
     height: 50px;
     font-size: 15px;
+  }
+}
 
+.loading-spinner-button {
+  &__small, &__default, &__large {
     background-color: #b8ff35;
-
     color: gray;
     text-align: center;
-    //text-align: left;
-
     margin: auto;
     display: flex;
-
     border-radius: 3px;
-
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+    font-size: 15px;
   }
 }
 
 .default-button {
 
-  &__small {
-    width: 80px;
-    height: 32px;
-
+  &__small, &__default, &__large {
     background-color: white;
     color: black;
     border: 1px solid darkgray;
     text-align: center;
-
     margin: auto;
     display: flex;
-
     border-radius: 3px;
-
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
@@ -219,114 +117,32 @@
       color: @color-blue;
       border: 1px solid @color-blue;
     }
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
   }
 
   &__default {
     width: 100px;
     height: 40px;
-
-    background-color: white;
-    color: black;
-    border: 1px solid darkgray;
-
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      color: @color-blue;
-      border: 1px solid @color-blue;
-    }
   }
 
   &__large {
     width: 125px;
     height: 50px;
-
-    background-color: white;
-    color: black;
-    border: 1px solid darkgray;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      color: @color-blue;
-      border: 1px solid @color-blue;
-    }
   }
 }
 
 .dashed-button {
-  &__small {
-    width: 80px;
-    height: 32px;
-
+  &__small, &__default, &__large {
     background-color: white;
     color: black;
     text-align: center;
-
     border: 1px dashed darkgray;
-
     margin: auto;
     display: flex;
-
-    border-radius: 3px;
-    cursor: pointer;
-
-    &:hover {
-      color: @color-blue;
-      border: 1px dashed @color-blue;
-    }
-  }
-
-  &__default {
-    width: 100px;
-    height: 40px;
-
-    background-color: white;
-    color: black;
-    text-align: center;
-
-    border: 1px dashed darkgray;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-    cursor: pointer;
-
-    &:hover {
-      color: @color-blue;
-      border: 1px dashed @color-blue;
-    }
-  }
-
-  &__large {
-    width: 125px;
-    height: 50px;
-
-    background-color: white;
-    color: black;
-    text-align: center;
-
-    border: 1px dashed darkgray;
-
-    margin: auto;
-    display: flex;
-
     border-radius: 3px;
     cursor: pointer;
     //& - класс, в котором находишься
@@ -335,64 +151,31 @@
       border: 1px dashed @color-blue;
     }
   }
-}
 
-.danger-button {
   &__small {
     width: 80px;
     height: 32px;
-
-    color: white;
-    background-color: #ff0026;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      background-color: #ff3554;
-    }
   }
 
   &__default {
     width: 100px;
     height: 40px;
-
-    color: white;
-    background-color: #ff0026;
-    text-align: center;
-
-    margin: auto;
-    display: flex;
-
-    border-radius: 3px;
-
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-
-    &:hover {
-      background-color: #ff3554;
-    }
   }
 
   &__large {
     width: 125px;
     height: 50px;
+  }
+}
 
+.danger-button {
+  &__small, &__default, &__large {
     color: white;
     background-color: #ff0026;
     text-align: center;
-
     margin: auto;
     display: flex;
-
     border-radius: 3px;
-
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
@@ -400,12 +183,42 @@
       background-color: #ff3554;
     }
   }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+  }
 }
 
-.spinner-style {
-  font-size: 4px;
-  float: left;
-  margin-right: 10px;
+.spinner {
+  &__small, &__default, &__large {
+    float: left;
+  }
+
+  &__small{
+    font-size: 2px;
+    margin-right: 4px;
+  }
+
+  &__default{
+    font-size: 3px;
+    margin-right: 7px;
+  }
+
+  &__large{
+    font-size: 4px;
+    margin-right: 10px;
+  }
 }
 
 .spinner_button_box {

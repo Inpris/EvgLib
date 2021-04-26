@@ -27,6 +27,10 @@ export class ButtonComponent implements OnInit {
     return `${this.isSpin ? 'loading-' : ''}${this.type}-button__${this.size}`;
   }
 
+  public get classSpinner(): string{
+    return `spinner__${this.size}`;
+  }
+
   public get classText(): string{
     return `${this.isSpin ? 'p-loading' : 'p'}`;
   }
