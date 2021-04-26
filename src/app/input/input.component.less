@@ -1,4 +1,4 @@
-.defaultfalse {
+.default {
   #parent {
     display: table; // нужно для выравнивания текста по вертикали
   }
@@ -15,19 +15,53 @@
 
     border-radius: 3px;
     border: 1px solid black;
-    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+    box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
     display: table-cell !important; // связывает с родительским блоком, объявленным как таблица
     vertical-align: middle; // и делает текст расположенным вертикально по центру
   }
+
+  #empty {
+    margin-left: 7px;
+    color: grey;
+  }
+
+  #fill {
+    margin-left: 7px;
+    margin-top: auto;
+    color: black;
+  }
 }
 
-#empty {
-  margin-left: 7px;
-  color: grey;
-}
+.disabled-default {
+  #parent {
+    display: table; // нужно для выравнивания текста по вертикали
+  }
 
-#fill {
-  margin-left: 7px;
-  margin-top: auto;
-  color: black;
+  #child {
+    overflow-x: hidden; // полос прокрутки нет, а работает как со значением scroll
+    white-space: nowrap; // для того, чтобы текст не переходил на другую строку сам
+    height: 40px;
+    width: 170px; // обязательное значение здесь
+    //max-height: 40px; // не понимаю, почему это не помогает сохранить размер поля ввода при нажатии enter
+    max-width: 170px; // помогает не удлиннятся полю ввода
+    //min-height: 40px; // не понимаю, почему это не помогает сохранить ту же высоту блока, даже если весь текст удалён
+    //min-width: 170px;
+
+    border-radius: 3px;
+    border: 1px solid gray;
+    box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
+    display: table-cell !important; // связывает с родительским блоком, объявленным как таблица
+    vertical-align: middle; // и делает текст расположенным вертикально по центру
+  }
+
+  #empty {
+    margin-left: 7px;
+    color: gray;
+  }
+
+  #fill {
+    margin-left: 7px;
+    margin-top: auto;
+    color: gray;
+  }
 }

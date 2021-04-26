@@ -3,7 +3,6 @@ import { SpinnerType } from '../spinner/spinner.component';
 
 export type TButtonSize = 'small' | 'default' | 'large';
 export type TButtonType = 'default' | 'primary' | 'dashed'| 'danger' | 'spinner';
-export type TIsSpinner = true | false;
 
 interface SpinnerSet { // что не так с этим объектом
   spinnerType: string;
@@ -20,11 +19,12 @@ export class ButtonComponent implements OnInit {
   @Input() public type: TButtonType = 'primary';
   @Input() public size: TButtonSize = 'large';
   @Input() public isSpin: boolean = false;
+  @Input() public disabled: boolean = false;
 
   spinnerType: SpinnerType = 'one_speed_in_circle';
 
   public get className(): string{
-    return `${this.isSpin ? 'loading-' : ''}${this.type}-button__${this.size}`;
+    return `${this.disabled ? 'disabled-' : ''}${this.isSpin ? 'loading-' : ''}${this.type}-button__${this.size}`;
   }
 
   public get classSpinner(): string{

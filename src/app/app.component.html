@@ -321,33 +321,35 @@
         <div class="column">
           <h3 class="elem_center">Primary buttons</h3>
 
-          <app-button size="large" type="primary" class="row">Large / Primary</app-button>
-          <app-button size="default" type="primary" class="row">Default / Primary</app-button>
-          <app-button size="small" type="primary" class="row">Small/Prime</app-button>
+<!--          [disabled]="disabled"-->
+
+          <app-button size="large" type="primary" class="row" [disabled]="disabled">Large / Primary</app-button>
+          <app-button size="default" type="primary" class="row" [disabled]="disabled">Default / Primary</app-button>
+          <app-button size="small" type="primary" class="row" [disabled]="disabled">Small/Prime</app-button>
         </div>
 
         <div class="column">
           <h3 class="elem_center">Default buttons</h3>
 
-          <app-button size="large" type="default" class="row">Large / Default</app-button>
-          <app-button size="default" type="default" class="row">Default / Default</app-button>
-          <app-button size="small" type="default" class="row">Small/Def</app-button>
+          <app-button size="large" type="default" class="row" [disabled]="disabled">Large / Default</app-button>
+          <app-button size="default" type="default" class="row" [disabled]="disabled">Default / Default</app-button>
+          <app-button size="small" type="default" class="row" [disabled]="disabled">Small/Def</app-button>
         </div>
 
         <div class="column">
           <h3 class="elem_center">Dashed buttons</h3>
 
-          <app-button size="large" type="dashed" class="row">Large / Dashed</app-button>
-          <app-button size="default" type="dashed" class="row">Default / Dashed</app-button>
-          <app-button size="small" type="dashed" class="row">Small/Dash</app-button>
+          <app-button size="large" type="dashed" class="row" [disabled]="disabled">Large / Dashed</app-button>
+          <app-button size="default" type="dashed" class="row" [disabled]="disabled">Default / Dashed</app-button>
+          <app-button size="small" type="dashed" class="row" [disabled]="disabled">Small/Dash</app-button>
         </div>
 
         <div class="column">
           <h3 class="elem_center">Danger buttons</h3>
 
-          <app-button size="large" type="danger" class="row" >Large / Danger</app-button>
-          <app-button size="default" type="danger" class="row">Default / Danger</app-button>
-          <app-button size="small" type="danger" class="row">Small/Dang</app-button>
+          <app-button size="large" type="danger" class="row" [disabled]="disabled">Large / Danger</app-button>
+          <app-button size="default" type="danger" class="row" [disabled]="disabled">Default / Danger</app-button>
+          <app-button size="small" type="danger" class="row" [disabled]="disabled">Small/Dang</app-button>
         </div>
       </div>
 
@@ -358,23 +360,15 @@
       <div class="row">
         <!-- кнопка со спиннером, почему-то  (click) вызывается даже если просто нажать на div column-->
         <div class="column">
-          <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()" class="row">New spinner</app-button>
-          <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()" class="row">New spinner</app-button>
-          <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()" class="row">New spinner</app-button>
+          <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()" class="row" [disabled]="disabled">New spinner</app-button>
+          <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()" class="row" [disabled]="disabled">New spinner</app-button>
+          <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()" class="row" [disabled]="disabled">New spinner</app-button>
         </div>
-
-<!--        <div class="column">-->
-<!--          -->
-<!--        </div>-->
-
-<!--        <div class="column">-->
-<!--          -->
-<!--        </div>-->
 
         <!-- спиннер поверх страницы на пару десятков секунд
         почему при загрузке страницы элементы не блокируются даже с z-index: 998. -->
         <div class="column">
-          <app-button size="large" type="danger" (click)="pageIsLoading()">
+          <app-button size="large" type="danger" (click)="pageIsLoading()" [disabled]="disabled">
             Loading page
           </app-button>
         </div>

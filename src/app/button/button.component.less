@@ -1,7 +1,6 @@
-@color-blue: #1976d2;
+@color-blue: #1976d2; //переменная
 
 .primary-button{
-
   &__small, &__default, &__large {
     background-color: @color-blue;
     color: white;
@@ -33,8 +32,35 @@
   }
 }
 
-.spinner-button {
+.disabled-primary-button {
+  &__small, &__default, &__large {
+    background-color: #50a0f1;
+    color: white;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
 
+  &__small {
+    width: 80px;
+    height: 32px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+  }
+}
+
+.spinner-button {
   &__small, &__default, &__large {
     background-color: #abff00;
     color: black;
@@ -69,7 +95,38 @@
   }
 }
 
-.loading-spinner-button {
+.disabled-spinner-button {
+  &__small, &__default, &__large {
+    background-color: #b8ff35;
+    color: black;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+    font-size: 15px;
+  }
+}
+
+.loading-spinner-button, .disabled-loading-spinner-button {
   &__small, &__default, &__large {
     background-color: #b8ff35;
     color: gray;
@@ -101,11 +158,10 @@
 }
 
 .default-button {
-
   &__small, &__default, &__large {
     background-color: white;
     color: black;
-    border: 1px solid darkgray;
+    border: 1px solid gray;
     text-align: center;
     margin: auto;
     display: flex;
@@ -135,12 +191,41 @@
   }
 }
 
+.disabled-default-button {
+  &__small, &__default, &__large {
+    background-color: white;
+    color: gray;
+    border: 1px solid gray;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+  }
+}
+
 .dashed-button {
   &__small, &__default, &__large {
     background-color: white;
     color: black;
     text-align: center;
-    border: 1px dashed darkgray;
+    border: 1px dashed gray;
     margin: auto;
     display: flex;
     border-radius: 3px;
@@ -150,6 +235,34 @@
       color: @color-blue;
       border: 1px dashed @color-blue;
     }
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+  }
+}
+
+.disabled-dashed-button {
+  &__small, &__default, &__large {
+    background-color: white;
+    color: gray;
+    text-align: center;
+    border: 1px dashed gray;
+    margin: auto;
+    display: flex;
+    border-radius: 3px;
+    cursor: pointer;
   }
 
   &__small {
@@ -182,6 +295,34 @@
     &:hover {
       background-color: #ff3554;
     }
+  }
+
+  &__small {
+    width: 80px;
+    height: 32px;
+  }
+
+  &__default {
+    width: 100px;
+    height: 40px;
+  }
+
+  &__large {
+    width: 125px;
+    height: 50px;
+  }
+}
+
+.disabled-danger-button {
+  &__small, &__default, &__large {
+    color: white;
+    background-color: #ff3554;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
   }
 
   &__small {

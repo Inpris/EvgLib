@@ -16,15 +16,21 @@ export class InputComponent implements OnInit {
   @Input() public textLabel: string = '';
   @Input() public isParser: boolean = false;
   @Input() public whatParser: string = '';
+  @Input() public disabled: boolean = false;
 
+  public edit: boolean = true;
   public textId: string = 'empty';
 
   public get ID(): string{
     return `${this.textId}`;
   }
 
+  // public get editable(): boolean {
+  //   return !disabled;
+  // }
+
   public get className(): string{
-    return `${this.class_name}${this.isParser}${this.whatLabel}`;
+    return `${this.disabled ? 'disabled-' : ''}${this.isParser ? 'haveParser-' : ''}${this.class_name}${this.whatLabel}`;
   }
 
   constructor() { }
