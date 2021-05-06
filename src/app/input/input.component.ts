@@ -21,8 +21,8 @@ import { takeUntil } from 'rxjs/operators';
 // useExisting: forwardRef(() => InputComponent), - ссылка на этот самый компонент для Ангуляр
 // forwardRef нужен для того, чтобы избежать ошибок, ибо ссылка на компонент идет до того, как компонент описан
 
-// writeValue - функция, которая вызывается, когда извне изменяется formControl привязанный к нашему компоненту
-// в аргументе принимает измененное значение
+// writeValue - функция, которая вызывается, когда привязывается formControl
+// в аргументе принимает значение control-a
 
 // public registerOnChange(fn: (...args) => any): void {
 //   this._changeFn = fn;
@@ -40,13 +40,12 @@ import { takeUntil } from 'rxjs/operators';
 // fromEvent(this.input.nativeElement, 'input') - аналог addEventListener из rxJs, более удобен
 
 // Проце всего проверить как это работает:
-// Я в app-component созхдал два app-input
-// к обоим привязан один formControl (<app-input [formControl]="control"></app-input>)
-// когда вводишь значение в первый инпут -
-// здесь на 112 строке сработает this._changeFn с введенным значением и твой текст передастся в formControl
-// сразу после этого во втором сработает writeValue = значение изменилось из вне и во второй запишется то, что ты ввела
-// в первый
-// если ввести значение во второй - все будет работать с точностью наоборот
+// Я в app-component создал app-input и просто div для отображения значения
+// к инпуту привязан formControl (<app-input [formControl]="control"></app-input>)
+// когда компонент инициализируется - у него сработает writeValue и запишется значение, которое было в formControl
+// если первоначально сделать public control: FormControl = this._fb.control('Вася'); - инпуте со старта будет текст "Вася"
+// когда вводишь значение в инпут -
+// здесь на 110 строке сработает this._changeFn с введенным значением и твой текст передастся в formControl
 
 @Component({
   selector: 'app-input',
@@ -99,7 +98,6 @@ export class InputComponent implements ControlValueAccessor, AfterViewInit, OnDe
     if (event.key === 'Enter') {
       event.preventDefault();
     }
-    // перехват enter-ов, ПАЧИМУ НИРАБОТАИТ :(
   }
 
   private _initControlValue(): void {
