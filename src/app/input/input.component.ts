@@ -1,74 +1,116 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  forwardRef,
+  Input,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { fromEvent, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
-export type className = 'default' | 'up_little_label' | 'down_little_label' | 'change_size_label' | 'transparent';
-/* | 'without_all' | 'phone_input' | 'password_input' | 'reSize' */
-export type whatLabel = '' | 'up_little_label' | 'down_little_label' | 'change_size_label';
+// Каждый созданный компонент, который будет использоватьтся, как formControl
+// должен реализовать в себе ControlValueAccessor и в провайдерах иметь NG_VALUE_ACCESSOR.
+
+// provide: NG_VALUE_ACCESSOR, - говорим Ангуляр, что наш компонент есть контрол,
+// который можно использовать в реактивных формах
+
+// useExisting: forwardRef(() => InputComponent), - ссылка на этот самый компонент для Ангуляр
+// forwardRef нужен для того, чтобы избежать ошибок, ибо ссылка на компонент идет до того, как компонент описан
+
+// writeValue - функция, которая вызывается, когда извне изменяется formControl привязанный к нашему компоненту
+// в аргументе принимает измененное значение
+
+// public registerOnChange(fn: (...args) => any): void {
+//   this._changeFn = fn;
+// }
+//
+// public registerOnTouched(fn: (...args) => any): void {
+//   this._touchedFn = fn;
+// }
+// Эти функции мы обязаны реализовать, так как мы иимплементим ControlValueAccessor
+// Ctrl + ЛКМ по ControlValueAccessor - перекинет на этот класс, где видно, какие функции должны быть реализованы
+// в классе
+
+// _changeFn - вызываем, когда хотим прокинуть наше значение наружу, то есть, чтобы из компонента изменить привязыннай к нему formControl
+
+// fromEvent(this.input.nativeElement, 'input') - аналог addEventListener из rxJs, более удобен
+
+// Проце всего проверить как это работает:
+// Я в app-component созхдал два app-input
+// к обоим привязан один formControl (<app-input [formControl]="control"></app-input>)
+// когда вводишь значение в первый инпут -
+// здесь на 112 строке сработает this._changeFn с введенным значением и твой текст передастся в formControl
+// сразу после этого во втором сработает writeValue = значение изменилось из вне и во второй запишется то, что ты ввела
+// в первый
+// если ввести значение во второй - все будет работать с точностью наоборот
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.less']
+  styleUrls: ['./input.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
+export class InputComponent implements ControlValueAccessor, AfterViewInit, OnDestroy {
+  @ViewChild('input', { read: ElementRef }) public input: ElementRef;
 
-export class InputComponent implements OnInit {
-  @Input() public class_name: className = 'default';
-  @Input() public content: string = '';
-  @Input() public whatLabel: whatLabel = '';
-  @Input() public textLabel: string = '';
-  @Input() public isParser: boolean = false;
-  @Input() public whatParser: string = '';
   @Input() public disabled: boolean = false;
 
-  public edit: boolean = true;
-  public textId: string = 'empty';
+  private _inputText: string = '';
+  private _destroyed$: Subject<void> = new Subject();
 
-  public get ID(): string{
-    return `${this.textId}`;
+  private _changeFn: (...args) => any = () => {};
+  private _touchedFn: (...args) => any = () => {};
+
+  constructor() {}
+
+  public ngAfterViewInit() {
+    this._initControlValue();
   }
 
-  // public get editable(): boolean {
-  //   return !disabled;
-  // }
-
-  public get className(): string{
-    if (this.whatLabel) {
-      this.class_name = this.whatLabel;
-    }
-    return `${this.disabled ? 'disabled-' : ''}${this.isParser ? 'haveParser-' : ''}${this.class_name}`;
+  public ngOnDestroy() {
+    this._destroyed$.next();
+    this._destroyed$.complete();
   }
 
-  constructor() { }
+  public writeValue(text: string): void {
+    this._inputText = text;
+  }
 
-  ngOnInit(): void {
-    if ( this.isParser === true && this.whatParser === '' ) {
-      this.whatParser = 'add whatParser=\"any\"' ;
-    }
+  public registerOnChange(fn: (...args) => any): void {
+    this._changeFn = fn;
+  }
 
-    if ( this.whatLabel !== '' && this.textLabel === '' ) {
-      this.textLabel = 'add textLabel=\"any\"' ;
-    }
-
-    if ( this.whatLabel !== '') {
-      this.content = '';
-    }
-
-    if ( this.class_name === 'transparent' && this.content === '' ) {
-      this.content = 'add content=\"any\"';
-    }
+  public registerOnTouched(fn: (...args) => any): void {
+    this._touchedFn = fn;
   }
 
   public stopEnter(event): void {
     if (event.key === 'Enter') {
-      // debugger
       event.preventDefault();
     }
+    // перехват enter-ов, ПАЧИМУ НИРАБОТАИТ :(
   }
 
-  public getTextID(event): void {
-    this.content = '';
+  private _initControlValue(): void {
+    this.input.nativeElement.innerText = this._inputText;
 
-    if (this.class_name === 'default') {
-      this.textId = 'fill';
-    }
+    fromEvent(this.input.nativeElement, 'input')
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe((event: InputEvent) => {
+        const text: string = (event.target as HTMLInputElement).innerText;
+
+        this._changeFn(text);
+      });
   }
 }

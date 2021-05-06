@@ -321,7 +321,7 @@
         <div class="column">
           <h3 class="elem_center">Primary buttons</h3>
 
-          <!--          [disabled]="disabled"-->
+<!--          [disabled]="disabled"-->
 
           <app-button size="large" type="primary" class="row" [disabled]="disabled">Large / Primary</app-button>
           <app-button size="default" type="primary" class="row" [disabled]="disabled">Default / Primary</app-button>
@@ -360,15 +360,9 @@
       <div class="row">
         <!-- кнопка со спиннером, почему-то  (click) вызывается даже если просто нажать на div column-->
         <div class="column">
-          <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()" class="row"
-                      [disabled]="disabled">Spinner 1
-          </app-button>
-          <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()" class="row"
-                      [disabled]="disabled">Spinner 2
-          </app-button>
-          <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()" class="row"
-                      [disabled]="disabled">Spinner 3
-          </app-button>
+          <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()" class="row" [disabled]="disabled">New spinner</app-button>
+          <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()" class="row" [disabled]="disabled">New spinner</app-button>
+          <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()" class="row" [disabled]="disabled">New spinner</app-button>
         </div>
 
         <!-- спиннер поверх страницы на пару десятков секунд
@@ -386,19 +380,12 @@
 
       <div class="row">
         <!-- input -->
-        <div class="column"> <!-- срабатывает (focus) даже если нажать сверху над Second Input-->
-          <app-input class_name="default" class="elem_center" content="First input" [disabled]="disabled" ></app-input>
-        </div>
-        <div class="column">
-          <app-input class_name="transparent" content="Add your text" [disabled]="disabled" class="elem_center" ></app-input>
-        </div>
-        <div class="column">
-          <app-input whatLabel="change_size_label" textLabel="Label" [disabled]="disabled" class="elem_center" ></app-input>
-        </div>
+        <app-input [formControl]="control" [disabled]="true"></app-input>
+        <div>{{ control.value }}</div>
       </div>
 
       <div class="row">
-        <h3 class="elem_center">Spinners</h3>
+        <h3 style="margin: auto">Spinners</h3>
       </div>
 
       <div class="row" style="height: 150px">

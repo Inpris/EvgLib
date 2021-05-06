@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TButtonSize, TButtonType} from './button/button.component';
+import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import {TButtonSize, TButtonType} from './button/button.component';
   styleUrls: ['./app.component.less']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'EvgLib';
 
   type: TButtonType = 'primary';
@@ -20,6 +21,14 @@ export class AppComponent {
   disabled: boolean = false;
   page: string = 'nullPage';
   i: number = 0;
+
+  public control: FormControl = this._fb.control('');
+
+  constructor(private _fb: FormBuilder) {}
+
+  public ngOnInit() {
+    this.control.valueChanges.subscribe((v) => console.log(v));
+  }
 
   public loadLarge(): void {
     if (!this.disabled) {
@@ -71,6 +80,4 @@ export class AppComponent {
     this.isLoadingPage = false;
     this.page = '';
   }
-
-  constructor() {}
 }

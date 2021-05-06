@@ -1,10 +1,8 @@
-<div id="parent" [className]="className">
-  <div id="child" contenteditable="true" (keydown)="stopEnter($event)" (focus)="getTextID($event)">
-<!--    -->
-    <p [id]="textId">
-        <ng-content></ng-content>
-        {{content}}
-    </p>
-  </div>
-  <label id="label" for="child" *ngIf="!!whatLabel" [class]="whatLabel">{{textLabel}}</label>
+<div class="input" [class.disabled]="disabled">
+  <div
+    #input
+    contenteditable="true"
+    class="input__text"
+    (keydown)="stopEnter($event)"
+  ></div>
 </div>
