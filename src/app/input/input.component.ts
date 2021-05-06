@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 
-export type className = 'default' /* | 'without_all' | 'phone_input' | 'password_input' | 'reSize' */;
-export type whatLabel = '' | 'up_little' | 'down_little';
+export type className = 'default' | 'up_little_label' | 'down_little_label' | 'change_size_label' | 'transparent';
+/* | 'without_all' | 'phone_input' | 'password_input' | 'reSize' */
+export type whatLabel = '' | 'up_little_label' | 'down_little_label' | 'change_size_label';
 
 @Component({
   selector: 'app-input',
@@ -30,22 +31,29 @@ export class InputComponent implements OnInit {
   // }
 
   public get className(): string{
-    return `${this.disabled ? 'disabled-' : ''}${this.isParser ? 'haveParser-' : ''}${this.class_name}${this.whatLabel}`;
+    if (this.whatLabel) {
+      this.class_name = this.whatLabel;
+    }
+    return `${this.disabled ? 'disabled-' : ''}${this.isParser ? 'haveParser-' : ''}${this.class_name}`;
   }
 
   constructor() { }
 
   ngOnInit(): void {
-    if ( this.class_name === 'default' && this.content === '') {
-      this.content = 'add content=\"any\"';
-    }
-
     if ( this.isParser === true && this.whatParser === '' ) {
       this.whatParser = 'add whatParser=\"any\"' ;
     }
 
     if ( this.whatLabel !== '' && this.textLabel === '' ) {
       this.textLabel = 'add textLabel=\"any\"' ;
+    }
+
+    if ( this.whatLabel !== '') {
+      this.content = '';
+    }
+
+    if ( this.class_name === 'transparent' && this.content === '' ) {
+      this.content = 'add content=\"any\"';
     }
   }
 
@@ -54,14 +62,13 @@ export class InputComponent implements OnInit {
       // debugger
       event.preventDefault();
     }
-    // перехват enter-ов, ПАЧИМУ НИРАБОТАИТ :(
   }
 
   public getTextID(event): void {
     this.content = '';
 
     if (this.class_name === 'default') {
-    this.textId = 'fill'; }
-    // работает только если полностью удалить this.content вручную и нажать backspace ещё раз
+      this.textId = 'fill';
+    }
   }
 }

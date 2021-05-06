@@ -1,6 +1,12 @@
 .default {
   #parent {
+    overflow: hidden;
+    width: 170px;
+    min-width: 170px;
+    height: 40px;
+    min-height: 40px;
     display: table; // нужно для выравнивания текста по вертикали
+    position: relative;
   }
 
   #child {
@@ -8,11 +14,9 @@
     white-space: nowrap; // для того, чтобы текст не переходил на другую строку сам
     height: 40px;
     width: 170px; // обязательное значение здесь
-    //max-height: 40px; // не понимаю, почему это не помогает сохранить размер поля ввода при нажатии enter
-    max-width: 170px; // помогает не удлиннятся полю ввода
-    //min-height: 40px; // не понимаю, почему это не помогает сохранить ту же высоту блока, даже если весь текст удалён
-    //min-width: 170px;
-
+    max-width: 170px; // помогает не удлинняться полю ввода
+    box-sizing: border-box;
+    background-color: white;
     border-radius: 3px;
     border: 1px solid black;
     box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
@@ -23,18 +27,38 @@
   #empty {
     margin-left: 7px;
     color: grey;
+    vertical-align: middle;
   }
 
   #fill {
     margin-left: 7px;
-    margin-top: auto;
     color: black;
+    vertical-align: middle; // не работает
   }
+
+  //#child:valid + p,  // не работает
+  //#child:focus + p {
+  //  margin-left: 7px;
+  //  color: black;
+  //  vertical-align: middle;
+  //}
+  //
+  //p {
+  //  margin-left: 7px;
+  //  color: grey;
+  //  vertical-align: middle;
+  //}
 }
 
-.disabled-default {
+.transparent {
   #parent {
+    overflow: hidden;
+    width: 170px;
+    min-width: 170px;
+    height: 40px;
+    min-height: 40px;
     display: table; // нужно для выравнивания текста по вертикали
+    position: relative;
   }
 
   #child {
@@ -42,11 +66,43 @@
     white-space: nowrap; // для того, чтобы текст не переходил на другую строку сам
     height: 40px;
     width: 170px; // обязательное значение здесь
-    //max-height: 40px; // не понимаю, почему это не помогает сохранить размер поля ввода при нажатии enter
     max-width: 170px; // помогает не удлиннятся полю ввода
-    //min-height: 40px; // не понимаю, почему это не помогает сохранить ту же высоту блока, даже если весь текст удалён
-    //min-width: 170px;
 
+    background-color: transparent;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    display: table-cell !important; // связывает с родительским блоком, объявленным как таблица
+    vertical-align: middle; // и делает текст расположенным вертикально по центру
+  }
+
+  #empty {
+    margin-left: 7px;
+    color: grey;
+    vertical-align: middle;
+  }
+
+  #fill {
+    margin-left: 7px;
+    color: black;
+    vertical-align: middle; // не работает
+  }
+}
+
+.disabled-default {
+  #parent {
+    width: 170px;
+    height: 40px;
+    display: table; // нужно для выравнивания текста по вертикали
+    position: relative;
+  }
+
+  #child {
+    overflow-x: hidden; // полос прокрутки нет, а работает как со значением scroll
+    white-space: nowrap; // для того, чтобы текст не переходил на другую строку сам
+    height: 40px;
+    width: 170px; // обязательное значение здесь
+    max-width: 170px; // помогает не удлиннятся полю ввода
+    box-sizing: border-box;
     border-radius: 3px;
     border: 1px solid gray;
     box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
@@ -62,6 +118,83 @@
   #fill {
     margin-left: 7px;
     margin-top: auto;
+    color: transparent;
+  }
+}
+
+.change_size_label {
+  #parent {
+    border: 1px solid transparent;
+    width: 170px;
+    height: 40px;
+    max-width: 170px;
+
+    position: relative; // не понимаю, почему label position:absolut не ведёт отсчёт от родителя
+    display: table;
+  }
+
+  #child {
+    overflow-x: hidden; // полос прокрутки нет, а работает как со значением scroll
+    white-space: nowrap; // пробелы не учитываются, переносы строк в коде HTML игнорируются, весь текст отображается одной строкой
+    height: 40px;
+    width: 170px;
+    box-sizing: border-box; // свойства width и height включают в себя значения полей и границ, но не отступов (margin)
+    // display: block;
+    display: table-cell !important;
+    vertical-align: middle;
+    // outline: none; // в отличие от border, свойство outline не влияет на положение блока и его ширину
+
+    max-width: 170px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 5px;
+    // font-size: 18px;
+    cursor: text;
+  }
+
+  #label {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    left: 5px;
+    top: 5px;
     color: gray;
+    font-size: 18px;
+    -webkit-transition: .2s;
+    transition: .2s;
+    z-index: 60;
+  }
+
+  #child:valid + label,
+  #child:focus + label {
+    top: 0;
+    font-size: 12px;
+  }
+
+  //#child:valid + p,  // не работает
+  //#child:focus + p {
+  //  margin-left: 7px;
+  //  color: black;
+  //  vertical-align: middle;
+  //}
+  //
+  //p {
+  //  margin-left: 7px;
+  //  color: grey;
+  //  vertical-align: middle;
+  //}
+
+  #empty {
+    margin-left: 7px;
+    color: grey;
+    vertical-align: middle;
+  }
+
+  #fill {
+    margin-left: 7px;
+    // margin-top: auto;
+    color: black;
+    vertical-align: middle;
   }
 }

@@ -23,15 +23,15 @@ export class ButtonComponent implements OnInit {
 
   spinnerType: SpinnerType = 'one_speed_in_circle';
 
-  public get className(): string{
+  public get className(): string {
     return `${this.disabled ? 'disabled-' : ''}${this.isSpin ? 'loading-' : ''}${this.type}-button__${this.size}`;
   }
 
-  public get classSpinner(): string{
+  public get classSpinner(): string {
     return `spinner__${this.size}`;
   }
 
-  public get classText(): string{
+  public get classText(): string {
     return `${this.isSpin ? 'p-loading' : 'p'}`;
   }
 
