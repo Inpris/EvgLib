@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import {ButtonModule} from './button/button.module';
 import {SpinnerModule} from './spinner/spinner.module';
 import {InputModule} from './input/input.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CheckboxModule} from './checkbox/checkbox.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,13 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+
     ButtonModule,
     SpinnerModule,
     InputModule,
-    ReactiveFormsModule,
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

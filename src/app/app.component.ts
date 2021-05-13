@@ -20,7 +20,19 @@ export class AppComponent implements OnInit {
   isLoadingPage: boolean = false;
   disabled: boolean = false;
   page: string = 'nullPage';
-  i: number = 0;
+
+  public controlInput: FormControl = this._fb.control('');
+  public checkmark: boolean = false;
+
+  constructor(private _fb: FormBuilder) {}
+
+  public ngOnInit() {
+    this.controlInput.valueChanges.subscribe((v) => console.log(v));
+  }
+
+  public checkmarkOnChange(mark: boolean): void {
+    this.checkmark = mark;
+  }
 
   public control: FormControl = this._fb.control('');
 
@@ -73,7 +85,7 @@ export class AppComponent implements OnInit {
     this.page = 'loadingPage';
 
     // setTimeout(this.stopPageIsLoading, 5000);
-    setTimeout(() => { this.isLoadingPage = false; this.page = ''; this.disabled = false;}, 5000);
+    setTimeout(() => { this.isLoadingPage = false; this.page = ''; this.disabled = false; }, 5000);
   }
 
   public stopPageIsLoading(): void { // не понимаю, почему не работает, если передать имя этой функии в setTimeout

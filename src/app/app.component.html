@@ -380,8 +380,18 @@
 
       <div class="row">
         <!-- input -->
-        <app-input [formControl]="control"></app-input>
-        <div>{{ control.value }}</div>
+        <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+        <div>{{ controlInput.value }}</div>
+      </div>
+
+      <div class="row">
+        <h3 class="elem_center">Checkboxes</h3>
+      </div>
+
+      <div class="row">
+        <!-- checkbox -->
+        <app-checkbox [disabled]="disabled" (checkTrue)="checkmarkOnChange($event)"></app-checkbox>
+        <div>{{checkmark}}</div>
       </div>
 
       <div class="row">
