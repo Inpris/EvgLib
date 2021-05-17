@@ -23,11 +23,11 @@
 .disabled {
   border: 1px solid #4e4e4e;
   background: #bdbcbc;
-  cursor: not-allowed;
+  cursor: not-allowed; // почему-то не работает
+  pointer-events: none; // запрещает мыши работу с элементом
 
   * {
     color: #4e4e4e;
     background: #bdbcbc;
-    pointer-events: none; // запрещает мыши работу с элементом
   }
 }

@@ -34,14 +34,6 @@ export class AppComponent implements OnInit {
     this.checkmark = mark;
   }
 
-  public control: FormControl = this._fb.control('');
-
-  constructor(private _fb: FormBuilder) {}
-
-  public ngOnInit() {
-    this.control.valueChanges.subscribe((v) => console.log(v));
-  }
-
   public loadLarge(): void {
     if (!this.disabled) {
       this.isSpinnerLarge = true;

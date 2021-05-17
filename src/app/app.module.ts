@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import {ButtonModule} from './button/button.module';
 import {SpinnerModule} from './spinner/spinner.module';
 import {InputModule} from './input/input.module';
+
+import {CheckboxModule} from './checkbox-with-output/checkbox.module';
+import {CheckboxControlValueAccessorModule} from './checkbox-control-value-accessor/checkbox-control-value-accessor.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CheckboxModule} from './checkbox/checkbox.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import {CheckboxModule} from './checkbox/checkbox.module';
     ButtonModule,
     SpinnerModule,
     InputModule,
+    CheckboxControlValueAccessorModule,
     CheckboxModule,
   ],
   providers: [],
