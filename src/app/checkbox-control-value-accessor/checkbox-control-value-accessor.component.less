@@ -16,9 +16,14 @@
   top: 1px;
   left: 1px;
   background-color: white;
+  border: 1px solid gray;
+  box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
 }
 
-.checkbox-container label:before {
+.checkbox-container label::before {
+  /*   ::before создаёт псевдоэлемент,который является первым потомком выбранного элемента.
+  Часто используется для добавления косметического содержимого в элемент с помощью свойства content.
+  По умолчания является инлайновым. */
   content: '';
   width: 16px;
   height: 8px;
@@ -26,12 +31,32 @@
   position: absolute;
   border-top: none;
   border-right: none;
-  transform: rotate(-50deg);
+  transform: rotate(-50deg); // поворачивает элементы вокруг собственного центра
   top: 1px;
   left: 1px;
-  opacity: 0;
+  opacity: 0; // элемент прозрачный
 }
 
-.checkbox-container input[type="checkbox"]:checked + label:before {
-  opacity: 1;
+.checkbox-container input[type="checkbox"]:checked + label::before {
+  /*
+  + поможет выбрать только тот элемент, который следует сразу же за указанным элементом
+
+  :checked находит любые элементы radio (<input type="radio">), checkbox (<input type="checkbox">) или option (<option> внутри <select>),
+  которые выбраны или включены. Пользователь может изменить это состояние, нажав на элемент, или выбрав другое значение,
+  в этом случае :checked повторно не применится к элементу, а сохранится
+   */
+
+  opacity: 1; // элемент непрозрачный
+}
+
+.disabled { // не работает, подключить к стилям бокса
+  border: 1px solid #4e4e4e;
+  background: #bdbcbc;
+  cursor: not-allowed; // почему-то не работает
+  pointer-events: none; // запрещает мыши работу с элементом
+
+  * {
+    color: #4e4e4e;
+    background: #bdbcbc;
+  }
 }

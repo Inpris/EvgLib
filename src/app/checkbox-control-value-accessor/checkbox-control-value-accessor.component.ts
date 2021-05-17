@@ -1,4 +1,4 @@
-import { Component, /*Input,*/ Renderer2, ElementRef, forwardRef } from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -8,19 +8,19 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckboxComponent),
+      useExisting: forwardRef(() => CheckboxControlValueAccessorComponent),
       multi: true
     }
   ]
 })
-export class CheckboxComponent implements ControlValueAccessor {
+export class CheckboxControlValueAccessorComponent implements ControlValueAccessor {
   static idCounter: number = 0;
   controlID: string;
-  // @Input() checked: boolean;
-  checked: boolean;
+  @Input() public disabled: boolean = false;
+  checked: boolean = false;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) {
-    this.controlID = 'myCheckbox' + CheckboxComponent.idCounter++;
+  constructor() {
+    this.controlID = 'сheckbox' + CheckboxControlValueAccessorComponent.idCounter++;
   }
 
   propagateChange = (_: any) => { };
@@ -39,9 +39,11 @@ export class CheckboxComponent implements ControlValueAccessor {
   registerOnTouched(fn: any) {
     this.onTouchedCallback = fn;
   }
+  // registerOnChange и registerOnTouched - эти функции мы обязаны реализовать, так как мы имплементим ControlValueAccessor
 
   onChange(event) {
     this.checked = event.target.checked;
+    // target.value - значение элемента DOM (справедливо для полей формы)
     this.propagateChange(event.target.checked);
   }
 }

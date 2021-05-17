@@ -13,12 +13,12 @@ import { EventEmitter } from '@angular/core';
 export class CheckboxComponent {
 
   @Input() public disabled: boolean = false;
-  @Output() checkTrue = new EventEmitter<any>();
+  @Output() public checked = new EventEmitter<any>();
 
   public checkmark: boolean = false;
 
   public checkmarkClick(): void {
     this.checkmark = !this.checkmark;
-    this.checkTrue.emit(this.checkmark);
+    this.checked.emit(this.checkmark);
   }
 }

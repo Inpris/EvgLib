@@ -385,13 +385,33 @@
       </div>
 
       <div class="row">
-        <h3 class="elem_center">Checkboxes</h3>
+        <div class="column">
+          <h3 class="elem_center">@Output checkbox</h3>
+        </div>
+        <div class="column">
+          <h3 class="elem_center">ControlValueAccessor checkbox</h3>
+        </div>
       </div>
 
       <div class="row">
+        <div class="column">
         <!-- checkbox-with-output -->
-        <app-checkbox [disabled]="disabled" (checkTrue)="checkmarkOnChange($event)"></app-checkbox>
-        <div>{{checkmark}}</div>
+          <app-checkbox [disabled]="disabled" (checked)="checkmarkOnChange($event)"></app-checkbox>
+        </div>
+        <div class="column">
+          <div>{{checkmark}}</div>
+        </div>
+
+        <div class="column">
+          <form #form="ngForm" (ngSubmit)="submit(form.value)">
+            <div>
+              <app-checkbox-control-value-accessor name="title" [(ngModel)]="title" [disabled]="disabled"></app-checkbox-control-value-accessor>
+            </div>
+          </form>
+        </div>
+        <div class="column">
+          <pre>{{ form.value | json }}</pre>
+        </div>
       </div>
 
       <div class="row">

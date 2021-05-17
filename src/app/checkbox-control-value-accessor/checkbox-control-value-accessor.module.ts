@@ -8,6 +8,9 @@ import { CheckboxControlValueAccessorComponent } from './checkbox-control-value-
   declarations: [CheckboxControlValueAccessorComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    CheckboxControlValueAccessorComponent
   ]
 })
 export class CheckboxControlValueAccessorModule { }

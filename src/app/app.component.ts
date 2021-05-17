@@ -34,6 +34,10 @@ export class AppComponent implements OnInit {
     this.checkmark = mark;
   }
 
+  public submit(value: string){
+    alert(value);
+  }
+
   public loadLarge(): void {
     if (!this.disabled) {
       this.isSpinnerLarge = true;
