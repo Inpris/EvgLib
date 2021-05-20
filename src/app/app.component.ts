@@ -9,7 +9,9 @@ import {FormBuilder, FormControl} from '@angular/forms';
 })
 
 export class AppComponent implements OnInit {
-  title = 'EvgLib';
+  title1: boolean = false;
+  title2: boolean = false;
+  title3: boolean = true;
 
   type: TButtonType = 'primary';
   size: TButtonSize = 'large';
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit {
     if (!this.disabled) {
       this.isSpinnerLarge = true;
 
-      // if (this.i === 0) { // выключает спиннер по клику
+      // if (this.i === 0) { // Выключает спиннер по клику
       //   this.isSpinner = true;
       //   this.i = 1;
       // }

@@ -1,5 +1,5 @@
-<div class="checkbox-container" >
+<div class="checkbox-container" [class.disabled]="disabled">
   <input type="checkbox" id="{{ controlID }}"
-         [checked]="checked" (change)="onChange($event)" [class.disabled]="disabled"/>
-  <label for="{{ controlID }}"></label>
+         [checked]="checked" (change)="onChange($event)" />
+  <label for="{{ controlID }}" ></label>
 </div>

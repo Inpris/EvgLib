@@ -405,7 +405,9 @@
         <div class="column">
           <form #form="ngForm" (ngSubmit)="submit(form.value)">
             <div>
-              <app-checkbox-control-value-accessor name="title" [(ngModel)]="title" [disabled]="disabled"></app-checkbox-control-value-accessor>
+              <app-checkbox-control-value-accessor name="title1" [(ngModel)]="title1" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
+              <app-checkbox-control-value-accessor name="title2" [(ngModel)]="title2" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
+              <app-checkbox-control-value-accessor name="title3" [(ngModel)]="title3" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
             </div>
           </form>
         </div>

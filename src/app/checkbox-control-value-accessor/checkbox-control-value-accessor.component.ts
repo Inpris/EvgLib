@@ -23,8 +23,8 @@ export class CheckboxControlValueAccessorComponent implements ControlValueAccess
     this.controlID = 'сheckbox' + CheckboxControlValueAccessorComponent.idCounter++;
   }
 
-  propagateChange = (_: any) => { };
-  onTouchedCallback = () => {};
+  private _propagateChange = (_: any) => { };
+  private _onTouchedCallback = () => {};
 
   writeValue(value: any) {
     if ((value !== undefined) && (value !== null)) {
@@ -33,17 +33,17 @@ export class CheckboxControlValueAccessorComponent implements ControlValueAccess
   }
 
   registerOnChange(fn: any) {
-    this.propagateChange = fn;
+    this._propagateChange = fn;
   }
 
   registerOnTouched(fn: any) {
-    this.onTouchedCallback = fn;
+    this._onTouchedCallback = fn;
   }
-  // registerOnChange и registerOnTouched - эти функции мы обязаны реализовать, так как мы имплементим ControlValueAccessor
+  // Справка: registerOnChange и registerOnTouched - эти функции мы обязаны реализовать, так как мы имплементим ControlValueAccessor
 
   onChange(event) {
     this.checked = event.target.checked;
-    // target.value - значение элемента DOM (справедливо для полей формы)
-    this.propagateChange(event.target.checked);
+    // Справка: target.value - значение элемента DOM (справедливо для полей формы)
+    this._propagateChange(event.target.checked);
   }
 }
