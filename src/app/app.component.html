@@ -426,7 +426,7 @@
         <div class="column">
           <form [formGroup]="frm">
             <div *ngFor="let item of listOptions">
-              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value" class="row"></app-radio-button>
+              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value" [disabled]="disabled" class="row"></app-radio-button>
             </div>
 <!--            <app-radio-button id="rc1" [frm]="frm" label="Yes" value="Yes" cn="selected_value"></app-radio-button>-->
 <!--            <app-radio-button id="rc2" [frm]="frm" label="No" value="No" cn="selected_value"></app-radio-button>-->

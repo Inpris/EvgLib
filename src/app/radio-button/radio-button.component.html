@@ -1,6 +1,6 @@
-<div [formGroup]="frm" class="b-radio">
+<div [formGroup]="frm" class="b-radio" [class.disabled]="disabled">
   <label [for]="id">
-    <input [id]="id" class="custom-radio" type="radio" [value]="value" [formControlName]="cn" [checked]="frm.get(cn).value === value">
+    <input [id]="id" type="radio" [value]="value" [formControlName]="cn" [checked]="frm.get(cn).value === value">
     <span>
       {{label}}
     </span>
