@@ -1,0 +1,39 @@
+.b-radio label{
+  display: inline-block;
+}
+
+.b-radio label input{
+  display: none;
+}
+
+.b-radio label input + span{
+  position: relative;
+  padding: 15px 30px 15px 30px;
+  white-space: nowrap;
+}
+
+.b-radio label input + span:before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
+  border-radius: 50%;
+
+}
+
+.b-radio label input:checked + span:before{
+  border-color: #1976d2;
+  box-shadow: inset 2px 2px 5px #1870c8, 1px 1px 5px rgba(255, 255, 255, 1);
+  content: '●';
+  text-align: center;
+
+  //font-size: 19px;
+  // Как сделать кружок внутри radio button крупнее, но по центру? если увеличиваю размер, кружок съезжает вниз.
+  color: #1870c8;
+}

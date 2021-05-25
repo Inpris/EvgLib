@@ -405,9 +405,7 @@
         <div class="column">
           <form #form="ngForm" (ngSubmit)="submit(form.value)">
             <div>
-              <div class="row">
-                <app-checkbox-control-value-accessor id="checkbox1" name="value1" [(ngModel)]="valueCheckbox1" [disabled]="disabled"></app-checkbox-control-value-accessor>
-              </div>
+              <app-checkbox-control-value-accessor id="checkbox1" name="value1" [(ngModel)]="valueCheckbox1" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
               <app-checkbox-control-value-accessor id="checkbox2" name="value2" [(ngModel)]="valueCheckbox2" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
               <app-checkbox-control-value-accessor id="checkbox3" name="value3" [(ngModel)]="valueCheckbox3" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
             </div>
@@ -428,9 +426,9 @@
         <div class="column">
           <form [formGroup]="frm">
             <div *ngFor="let item of listOptions">
-              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value"></app-radio-button>
+              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value" class="row"></app-radio-button>
             </div>
-<!--            <app-radio-button id="rc1" [frm]="frm" label="Yes" value="Yes" cn="selected_value" ></app-radio-button>-->
+<!--            <app-radio-button id="rc1" [frm]="frm" label="Yes" value="Yes" cn="selected_value"></app-radio-button>-->
 <!--            <app-radio-button id="rc2" [frm]="frm" label="No" value="No" cn="selected_value"></app-radio-button>-->
           </form>
         </div>
