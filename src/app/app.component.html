@@ -321,35 +321,80 @@
         <div class="column">
           <h3 class="elem_center">Primary buttons</h3>
 
-<!--          [disabled]="disabled"-->
-
-          <app-button size="large" type="primary" class="row" [disabled]="disabled">Large / Primary</app-button>
-          <app-button size="default" type="primary" class="row" [disabled]="disabled">Default / Primary</app-button>
-          <app-button size="small" type="primary" class="row" [disabled]="disabled">Small/Prime</app-button>
+          <!--          [disabled]="disabled"-->
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="large" type="primary" [disabled]="disabled">Large / Primary</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="default" type="primary" [disabled]="disabled">Default / Primary</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="small" type="primary" [disabled]="disabled">Small/Prime</app-button>
+            </div>
+          </div>
         </div>
 
         <div class="column">
           <h3 class="elem_center">Default buttons</h3>
-
-          <app-button size="large" type="default" class="row" [disabled]="disabled">Large / Default</app-button>
-          <app-button size="default" type="default" class="row" [disabled]="disabled">Default / Default</app-button>
-          <app-button size="small" type="default" class="row" [disabled]="disabled">Small/Def</app-button>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="large" type="default" [disabled]="disabled">Large / Default</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="default" type="default" [disabled]="disabled">Default / Default</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="small" type="default" [disabled]="disabled">Small/Def</app-button>
+            </div>
+          </div>
         </div>
 
         <div class="column">
           <h3 class="elem_center">Dashed buttons</h3>
-
-          <app-button size="large" type="dashed" class="row" [disabled]="disabled">Large / Dashed</app-button>
-          <app-button size="default" type="dashed" class="row" [disabled]="disabled">Default / Dashed</app-button>
-          <app-button size="small" type="dashed" class="row" [disabled]="disabled">Small/Dash</app-button>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="large" type="dashed" [disabled]="disabled">Large / Dashed</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="default" type="dashed" [disabled]="disabled">Default / Dashed</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="small" type="dashed" [disabled]="disabled">Small/Dash</app-button>
+            </div>
+          </div>
         </div>
 
         <div class="column">
           <h3 class="elem_center">Danger buttons</h3>
 
-          <app-button size="large" type="danger" class="row" [disabled]="disabled">Large / Danger</app-button>
-          <app-button size="default" type="danger" class="row" [disabled]="disabled">Default / Danger</app-button>
-          <app-button size="small" type="danger" class="row" [disabled]="disabled">Small/Dang</app-button>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="large" type="danger" [disabled]="disabled">Large / Danger</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="default" type="danger" [disabled]="disabled">Default / Danger</app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="small" type="danger" [disabled]="disabled">Small/Dang</app-button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -358,19 +403,40 @@
       </div>
 
       <div class="row">
-        <!-- кнопка со спиннером, почему-то  (click) вызывается даже если просто нажать на div column-->
+        <!-- кнопки со спиннером-->
         <div class="column">
-          <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()" class="row" [disabled]="disabled">New spinner</app-button>
-          <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()" class="row" [disabled]="disabled">New spinner</app-button>
-          <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()" class="row" [disabled]="disabled">New spinner</app-button>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="large" type="spinner" [isSpin]="isSpinnerLarge" (click)="loadLarge()"
+                          [disabled]="disabled">New spinner
+              </app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="default" type="spinner" [isSpin]="isSpinnerDefault" (click)="loadDefault()"
+                          [disabled]="disabled">New spinner
+              </app-button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="small" type="spinner" [isSpin]="isSpinnerSmall" (click)="loadSmall()"
+                          [disabled]="disabled">New spinner
+              </app-button>
+            </div>
+          </div>
         </div>
 
-        <!-- спиннер поверх страницы на пару десятков секунд
-        почему при загрузке страницы элементы не блокируются даже с z-index: 998. -->
+        <!-- спиннер поверх страницы на пару десятков секунд -->
         <div class="column">
-          <app-button size="large" type="danger" (click)="pageIsLoading()" [disabled]="disabled">
-            Loading page
-          </app-button>
+          <div class="row">
+            <div class="elem_center">
+              <app-button size="large" type="danger" (click)="pageIsLoading()" [disabled]="disabled">
+                Loading page
+              </app-button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -395,7 +461,7 @@
 
       <div class="row">
         <div class="column">
-        <!-- checkbox-with-output -->
+          <!-- checkbox-with-output -->
           <app-checkbox [disabled]="disabled" (checked)="checkmarkOnChange($event)"></app-checkbox>
         </div>
         <div class="column">
@@ -405,9 +471,15 @@
         <div class="column">
           <form #form="ngForm" (ngSubmit)="submit(form.value)">
             <div>
-              <app-checkbox-control-value-accessor id="checkbox1" name="value1" [(ngModel)]="valueCheckbox1" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
-              <app-checkbox-control-value-accessor id="checkbox2" name="value2" [(ngModel)]="valueCheckbox2" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
-              <app-checkbox-control-value-accessor id="checkbox3" name="value3" [(ngModel)]="valueCheckbox3" [disabled]="disabled" class="row"></app-checkbox-control-value-accessor>
+              <app-checkbox-control-value-accessor id="checkbox1" name="value1" [(ngModel)]="valueCheckbox1"
+                                                   [disabled]="disabled"
+                                                   class="row"></app-checkbox-control-value-accessor>
+              <app-checkbox-control-value-accessor id="checkbox2" name="value2" [(ngModel)]="valueCheckbox2"
+                                                   [disabled]="disabled"
+                                                   class="row"></app-checkbox-control-value-accessor>
+              <app-checkbox-control-value-accessor id="checkbox3" name="value3" [(ngModel)]="valueCheckbox3"
+                                                   [disabled]="disabled"
+                                                   class="row"></app-checkbox-control-value-accessor>
             </div>
           </form>
         </div>
@@ -426,10 +498,11 @@
         <div class="column">
           <form [formGroup]="frm">
             <div *ngFor="let item of listOptions">
-              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value" [disabled]="disabled" class="row"></app-radio-button>
+              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value"
+                                [disabled]="disabled" class="row"></app-radio-button>
             </div>
-<!--            <app-radio-button id="rc1" [frm]="frm" label="Yes" value="Yes" cn="selected_value"></app-radio-button>-->
-<!--            <app-radio-button id="rc2" [frm]="frm" label="No" value="No" cn="selected_value"></app-radio-button>-->
+            <!--            <app-radio-button id="rc1" [frm]="frm" label="Yes" value="Yes" cn="selected_value"></app-radio-button>-->
+            <!--            <app-radio-button id="rc2" [frm]="frm" label="No" value="No" cn="selected_value"></app-radio-button>-->
           </form>
         </div>
         <div class="column">
