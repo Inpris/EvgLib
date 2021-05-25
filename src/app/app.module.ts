@@ -9,6 +9,7 @@ import {InputModule} from './input/input.module';
 import {CheckboxModule} from './checkbox-with-output/checkbox.module';
 import {CheckboxControlValueAccessorModule} from './checkbox-control-value-accessor/checkbox-control-value-accessor.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RadioButtonModule} from './radio-button/radio-button.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     InputModule,
     CheckboxControlValueAccessorModule,
     CheckboxModule,
+    RadioButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,10 +7,10 @@ import { CheckboxControlValueAccessorComponent } from './checkbox-control-value-
 @NgModule({
   declarations: [CheckboxControlValueAccessorComponent],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
-    CheckboxControlValueAccessorComponent
+    CheckboxControlValueAccessorComponent,
   ]
 })
 export class CheckboxControlValueAccessorModule { }

@@ -1,0 +1,5 @@
+<div [formGroup]="frm">
+  <label [for]="id">
+    <input [id]="id" type="radio" [value]="value" [formControlName]="cn" [checked]="frm.get(cn).value === value">{{label}}
+  </label>
+</div>

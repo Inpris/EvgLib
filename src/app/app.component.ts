@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TButtonSize, TButtonType} from './button/button.component';
-import {FormBuilder, FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,18 @@ import {FormBuilder, FormControl} from '@angular/forms';
 })
 
 export class AppComponent implements OnInit {
-  title1: boolean = false;
-  title2: boolean = false;
-  title3: boolean = true;
+  valueCheckbox1: boolean = false;
+  valueCheckbox2: boolean = false;
+  valueCheckbox3: boolean = true;
+
+  frm: FormGroup;
+
+  public listOptions = [
+    { id: 1, name: 'Admin' },
+    { id: 2, name: 'Director' },
+    { id: 3, name: 'Professor' },
+    { id: 4, name: 'Student' }
+  ];
 
   type: TButtonType = 'primary';
   size: TButtonSize = 'large';
@@ -30,6 +39,10 @@ export class AppComponent implements OnInit {
 
   public ngOnInit() {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
+
+    this.frm = this._fb.group({
+      selected_value: [this.listOptions[0].name, Validators.required]
+    });
   }
 
   public checkmarkOnChange(mark: boolean): void {
@@ -37,7 +50,6 @@ export class AppComponent implements OnInit {
   }
 
   public submit(value: string){
-    alert(value);
   }
 
   public loadLarge(): void {
