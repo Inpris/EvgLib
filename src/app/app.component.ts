@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
 
     this.frm = this._fb.group({
-      selected_value: [this.listOptions[0].name, Validators.required]
+      selected_value: [this.listOptions[0].name, Validators.required] // cn in html
     });
   }
 

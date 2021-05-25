@@ -14,7 +14,6 @@ export class RadioButtonComponent implements OnInit {
   @Input() cn: string;
   @Input() value: string;
   @Input() id: string;
-  checked: boolean = false;
 
   constructor() { }
 
