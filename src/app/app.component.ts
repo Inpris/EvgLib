@@ -15,7 +15,12 @@ export class AppComponent implements OnInit {
 
   frm: FormGroup;
 
-  public listOptions = [
+  roleForm = this._fb.group({
+    roleName: ['', [Validators.required]]
+  });
+  //  public form = new FormGroup({ a: [null] }); // то же самое, но так (через FormBuilder) "изящнее"
+
+  public listRole = [
     { id: 1, name: 'Admin' },
     { id: 2, name: 'Director' },
     { id: 3, name: 'Professor' },
@@ -31,9 +36,9 @@ export class AppComponent implements OnInit {
   isLoadingPage: boolean = false;
   disabled: boolean = false;
   page: string = 'nullPage';
+  checkmark: boolean = false;
 
   public controlInput: FormControl = this._fb.control('');
-  public checkmark: boolean = false;
 
   constructor(private _fb: FormBuilder) {}
 
@@ -41,7 +46,7 @@ export class AppComponent implements OnInit {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
 
     this.frm = this._fb.group({
-      selected_value: [this.listOptions[0].name, Validators.required] // cn in html
+      selected_value: [this.listRole[0].name, Validators.required] // cn in html
     });
   }
 

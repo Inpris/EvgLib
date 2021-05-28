@@ -1,13 +1,14 @@
-<div [class]="className" >
-  <div class="button">
-
+<div [class]="className">
+  <div class="elem_center"> <!--    не работает-->
     <div *ngIf="isSpin" class="spinner_button_box">
       <app-spinner [spinnerType]="spinnerType" [class]="classSpinner"></app-spinner>
     </div>
+  </div>
 
-      <p [class]="classText">
-        <ng-content></ng-content>
-      </p>
+  <div class="button">
+    <p [class]="classText">
+      <ng-content></ng-content>
+    </p>
   </div>
 </div>
 

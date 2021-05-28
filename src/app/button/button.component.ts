@@ -4,11 +4,11 @@ import { SpinnerType } from '../spinner/spinner.component';
 export type TButtonSize = 'small' | 'default' | 'large';
 export type TButtonType = 'default' | 'primary' | 'dashed'| 'danger' | 'spinner';
 
-interface SpinnerSet { // что не так с этим объектом
-  spinnerType: string;
-  loading: boolean;
-  isSpinner: boolean;
-}
+// interface SpinnerSet { // создание объекта
+//   spinnerType: string;
+//   loading: boolean;
+//   isSpinner: boolean;
+// }
 
 @Component({
   selector: 'app-button',
@@ -35,23 +35,8 @@ export class ButtonComponent implements OnInit {
     return `${this.isSpin ? 'p-loading' : 'p'}`;
   }
 
-  // public spinType(): void {
-  //   const settings = {
-  //     endangered_circles: {
-  //       loading: 'loading-',
-  //     }
-  //   };
-  //
-  //   let settings_two: SpinnerSet = {
-  //     spinnerType: 'one_speed_in_circle',
-  //     loading: true,
-  //     isSpinner: true,
-  //   };
-  // }
-
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

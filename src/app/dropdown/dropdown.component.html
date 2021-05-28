@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+  <label>
+    <select (change)="changeRole($event)" formControlName="roleName">
+      <option value="" >Choose your role</option>
+      <option *ngFor="let item of list" [ngValue]="item.name">{{item.name}}</option>
+    </select>
+  </label>
+</form>
+
+<!-- error блок если есть взаимодействие с кнопкой -->
+<!--<div class="invalid-feedback" *ngIf="isSubmitted && roleName.errors?.required">-->
+<!--  <sup>*</sup>Please enter your role name-->
+<!--</div>-->
