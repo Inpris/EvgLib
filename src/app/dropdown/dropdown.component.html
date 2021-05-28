@@ -1,7 +1,7 @@
 <form [formGroup]="form">
   <label>
     <select (change)="changeRole($event)" formControlName="roleName">
-      <option value="" >Choose your role</option>
+      <option value="" >{{firstText}}&nbsp;</option>
       <option *ngFor="let item of list" [ngValue]="item.name">{{item.name}}</option>
     </select>
   </label>

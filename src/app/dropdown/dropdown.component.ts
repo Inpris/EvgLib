@@ -10,7 +10,8 @@ export class DropdownComponent implements OnInit {
 
   @Input() public disabled: boolean = false;
   @Input() public list = [];
-  @Input() public  form;
+  @Input() public form;
+  @Input() public firstText = '';
   // isSubmitted: boolean = false;
 
   constructor(private _fb: FormBuilder) { }
