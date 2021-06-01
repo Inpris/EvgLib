@@ -29,10 +29,12 @@ export class DropboxDivComponent implements OnInit {
   }
 
   setValue($event, itemName) {
-    this.firstText = itemName;
-    this.isSubmitted = !this.isSubmitted;
+    if (!this.disabled) {
+      this.firstText = itemName;
+      this.isSubmitted = !this.isSubmitted;
 
-    this.divRoleName.setValue(itemName);
+      this.divRoleName.setValue(itemName);
+    }
   }
 
 //  геттер для roleForm

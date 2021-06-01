@@ -1,15 +1,15 @@
 .dropdown {
   position: relative;
-  white-space: nowrap; // для того, чтобы текст не переходил на другую строку сам
+  white-space: nowrap; // Справка: для того, чтобы текст не переходил на другую строку сам
   height: 40px;
-  width: 170px; // обязательное значение здесь
-  max-width: 170px; // помогает не удлинняться полю ввода
+  width: 170px; // Справка: обязательное значение здесь
+  max-width: 170px; // Справка: помогает не удлинняться полю ввода
   border: 1px solid gray;
-  display: flex; // позволяет проще управлять расположением элемента на странице
-  align-items: center; // определяет вертикальное выравнивание всех дочерних элементов по центру родительского.
-  vertical-align: middle; // и делает текст расположенным вертикально по центру
+  display: flex; // Справка: позволяет проще управлять расположением элемента на странице
+  align-items: center; // Справка: определяет вертикальное выравнивание всех дочерних элементов по центру родительского.
+  vertical-align: middle; // Справка: и делает текст расположенным вертикально по центру
   padding: 0 5px;
-  box-sizing: border-box; // свойства width и height включают в себя значения полей и границ, но не отступов (margin)
+  box-sizing: border-box; // Справка: свойства width и height включают в себя значения полей и границ, но не отступов (margin)
 }
 
 .dropdownButton {
@@ -17,7 +17,7 @@
   position: absolute;
   right: 0;
   height: 38px;
-  box-sizing: border-box; // свойства width и height включают в себя значения полей и границ, но не отступов (margin)
+  box-sizing: border-box; // Справка: свойства width и height включают в себя значения полей и границ, но не отступов (margin)
 
   &:hover {
     background-color: #d9d9d9;
@@ -33,11 +33,11 @@
 
 .dropdownField {
   height: 40px;
-  width: 168px; // обязательное значение здесь
+  width: 168px; // Справка: обязательное значение здесь
   max-width: 170px;
-  align-items: center; // определяет вертикальное выравнивание всех дочерних элементов по центру родительского.
-  vertical-align: middle; // и делает текст расположенным вертикально по центру
-  box-sizing: border-box; // свойства width и height включают в себя значения полей и границ, но не отступов (margin)
+  align-items: center; // Справка: определяет вертикальное выравнивание всех дочерних элементов по центру родительского.
+  vertical-align: middle; // Справка: и делает текст расположенным вертикально по центру
+  box-sizing: border-box; // Справка: свойства width и height включают в себя значения полей и границ, но не отступов (margin)
   padding: 10px;
 
   &:hover {
@@ -47,11 +47,20 @@
 
 .disabled {
   border: 1px solid #4e4e4e;
-  background: #bdbcbc;
+  background-color: #bdbcbc;
   cursor: not-allowed;
 
   * {
-    background: #bdbcbc;
-    pointer-events: none; // запрещает мыши работу с элементом
+    background-color: #bdbcbc;
+    pointer-events: none;
+  }
+}
+
+.disabled button {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #4e4e4e;
+  &:hover {
+    background-color:  #4e4e4e;
   }
 }

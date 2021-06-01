@@ -7,12 +7,10 @@ import {FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./dropdown.component.less']
 })
 export class DropdownComponent implements OnInit {
-
   @Input() public disabled: boolean = false;
   @Input() public list = [];
   @Input() public form;
   @Input() public firstText = '';
-  // isSubmitted: boolean = false;
 
   constructor(private _fb: FormBuilder) { }
 
@@ -20,11 +18,12 @@ export class DropdownComponent implements OnInit {
   }
 
   changeRole(event) {
-    console.log(event.value);
+    if (!this.disabled) {
 
     this.roleName.setValue(event.target.value, {
       onlySelf: true
     });
+  }
   }
 
 //  геттер для roleForm
