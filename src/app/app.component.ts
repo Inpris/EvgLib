@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
   roleForm = this._fb.group({
     roleName: ['', [Validators.required]]
   });
+
+  divRoleForm = this._fb.group({
+    divRoleName: ['', [Validators.required]]
+  });
   //  public form = new FormGroup({ a: [null] }); // то же самое, но так (через FormBuilder) "изящнее"
 
   public listRole = [

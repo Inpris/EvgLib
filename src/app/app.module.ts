@@ -10,7 +10,8 @@ import {CheckboxModule} from './checkbox-with-output/checkbox.module';
 import {CheckboxControlValueAccessorModule} from './checkbox-control-value-accessor/checkbox-control-value-accessor.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RadioButtonModule} from './radio-button/radio-button.module';
-import {DropdownModule} from './dropdown/dropdown.module';
+import {DropdownModule} from './dropdown-select/dropdown.module';
+import {DropboxDivModule} from './dropbox-div/dropbox-div.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {DropdownModule} from './dropdown/dropdown.module';
     CheckboxModule,
     RadioButtonModule,
     DropdownModule,
+    DropboxDivModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
