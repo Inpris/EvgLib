@@ -1,45 +1,34 @@
-import {AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormBuilder} from '@angular/forms';
-import {fromEvent, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dropbox-div',
   templateUrl: './dropbox-div.component.html',
   styleUrls: ['./dropbox-div.component.less']
 })
-export class DropboxDivComponent implements OnInit {
-  @ViewChild('dropdown', { read: ElementRef }) public dropdown: ElementRef;
-
+export class DropboxDivComponent {
   @Input() public disabled: boolean = false;
   @Input() public list = [];
-  @Input() public form;
+  @Input() public control: FormControl;
   @Input() public firstText = '';
-  @Input() value: string;
-  isSubmitted: boolean = false;
+  @Input() public value: string;
 
-  // dropboxValue: string = this.firstText;
+  public isSubmitted: boolean = false;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder) {}
 
-  ngOnInit(): void {}
-
-  show() {
+  public show(): void {
     this.isSubmitted = !this.isSubmitted;
   }
 
-  setValue($event, itemName) {
-    if (!this.disabled) {
-      this.firstText = itemName;
-      this.isSubmitted = !this.isSubmitted;
-
-      this.divRoleName.setValue(itemName);
+  public setValue(event, itemName): void {
+    if (this.disabled) {
+      return;
     }
-  }
 
-//  геттер для roleForm
-  get divRoleName() {
-    return this.form.get('divRoleName');
-  }
+    this.firstText = itemName;
+    this.isSubmitted = !this.isSubmitted;
 
+    this.control.setValue(itemName);
+  }
 }

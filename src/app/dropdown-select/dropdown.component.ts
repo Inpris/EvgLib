@@ -1,33 +1,25 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {Component, Input} from '@angular/core';
+import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.less']
 })
-export class DropdownComponent implements OnInit {
+export class DropdownComponent {
   @Input() public disabled: boolean = false;
   @Input() public list = [];
-  @Input() public form;
+  @Input() public control: FormControl;
   @Input() public firstText = '';
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder) {}
 
-  ngOnInit(): void {
-  }
-
-  changeRole(event) {
+  public changeRole(event): void {
     if (!this.disabled) {
-
-    this.roleName.setValue(event.target.value, {
-      onlySelf: true
-    });
-  }
-  }
-
-//  геттер для roleForm
-  get roleName() {
-    return this.form.get('roleName');
+      this.control.setValue(event.target.value, {
+        onlySelf: true,
+        emitEvent: false,
+      });
+    }
   }
 }

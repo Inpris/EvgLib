@@ -1,23 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {Component, forwardRef, Input} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-radio-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.less']
+  styleUrls: ['./radio-button.component.less'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => RadioButtonComponent),
+      multi: true
+    }
+  ]
 })
-export class RadioButtonComponent implements OnInit {
-
+export class RadioButtonComponent implements ControlValueAccessor {
   @Input() public disabled: boolean = false;
-  @Input() frm: FormGroup;
-  @Input() label: string;
-  @Input() cn: string;
-  @Input() value: string;
-  @Input() id: string;
+  @Input() public label: string;
+  @Input() public value: string;
 
-  constructor() { }
+  public writeValue(value: any) {}
 
-  ngOnInit(): void {
+  public registerOnChange(fn: any) {}
 
-  }
+  public registerOnTouched(fn: any) {}
 }

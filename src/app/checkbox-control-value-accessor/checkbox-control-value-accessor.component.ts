@@ -1,10 +1,11 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox-control-value-accessor',
   templateUrl: './checkbox-control-value-accessor.component.html',
   styleUrls: ['./checkbox-control-value-accessor.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -15,33 +16,33 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class CheckboxControlValueAccessorComponent implements ControlValueAccessor {
   static idCounter: number = 0;
-  controlID: string;
+
   @Input() public disabled: boolean = false;
-  checked: boolean = false;
 
-  constructor() {
-    this.controlID = 'сheckbox' + CheckboxControlValueAccessorComponent.idCounter++;
+  public controlId: string;
+  public checked: boolean = false;
+
+  constructor(private _cd: ChangeDetectorRef) {
+    this.controlId = 'сheckbox' + CheckboxControlValueAccessorComponent.idCounter++;
   }
 
-  private _propagateChange = (_: any) => { };
-  private _onTouchedCallback = () => {};
+  private _propagateChange: (...args) => any;
+  private _onTouchedCallback: () => any;
 
-  writeValue(value: any) {
-    if ((value !== undefined) && (value !== null)) {
-      this.checked = value;
-    }
+  public writeValue(value: any) {
+    this.checked = !!value;
   }
 
-  registerOnChange(fn: any) {
+  public registerOnChange(fn: any) {
     this._propagateChange = fn;
   }
 
-  registerOnTouched(fn: any) {
+  public registerOnTouched(fn: any) {
     this._onTouchedCallback = fn;
   }
   // Справка: registerOnChange и registerOnTouched - эти функции мы обязаны реализовать, так как мы имплементим ControlValueAccessor
 
-  onChange(event) {
+  public onChange(event): void {
     this.checked = event.target.checked;
     // Справка: target.value - значение элемента DOM (справедливо для полей формы)
     this._propagateChange(event.target.checked);

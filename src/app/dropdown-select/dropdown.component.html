@@ -1,11 +1,11 @@
-<form [formGroup]="form">
+<div>
   <label>
-    <select (change)="changeRole($event)" formControlName="roleName">
-      <option value="" >{{firstText}}&nbsp;</option>
-      <option *ngFor="let item of list" [ngValue]="item.name">{{item.name}}</option>
+    <select (change)="changeRole($event)" [formControl]="control">
+      <option value="">{{firstText}}&nbsp</option>
+      <option *ngFor="let item of list" [value]="item.name">{{item.name}}</option>
     </select>
   </label>
-</form>
+</div>
 
 <!-- error блок если есть взаимодействие с кнопкой -->
 <!--<div class="invalid-feedback" *ngIf="isSubmitted && roleName.errors?.required">-->
