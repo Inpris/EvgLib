@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 
 export type SpinnerType = 'little-merging_circles' | '' | 'merging_circles' | 'sticks' | 'one_speed' | 'one_speed_in_circle' | 'stop-down' | 'circles' | 'endangered_circles';
 // export type SpinnerSize = 'little-' | '';
@@ -6,7 +6,8 @@ export type SpinnerType = 'little-merging_circles' | '' | 'merging_circles' | 's
 @Component({
   selector: 'app-spinner',
   templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.less']
+  styleUrls: ['./spinner.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpinnerComponent implements OnInit {
 

@@ -1,68 +1,73 @@
-.b-radio label{
-  display: inline-block;
-}
+.b-radio {
+  label {
+    display: inline-block;
 
-.b-radio label input{
-  display: none;
-}
+    input {
+      display: none;
 
-.b-radio label input + span{
-  position: relative;
-  padding: 15px 30px 15px 30px;
-  white-space: nowrap;
-}
+      & + span {
+        position: relative;
+        padding: 15px 30px 15px 30px;
+        white-space: nowrap;
 
-.b-radio label input + span:before{
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -10px;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  border: 1px solid gray;
-  box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
-  border-radius: 50%;
-}
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin-top: -10px;
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          border: 1px solid gray;
+          box-shadow: inset 2px 2px 5px gray, 1px 1px 5px rgba(255, 255, 255, 1);
+          border-radius: 50%;
+        }
+      }
 
-.b-radio label input:checked + span:before{
-  border-color: #1976d2;
-  box-shadow: inset 2px 2px 5px #4198f8, 1px 1px 5px rgba(255, 255, 255, 1);
-  content: '●';
-  text-align: center;
+      &:checked + span:before {
+        border-color: #1976d2;
+        box-shadow: inset 2px 2px 5px #4198f8, 1px 1px 5px rgba(255, 255, 255, 1);
+        content: '●';
+        text-align: center;
 
-  // font-size: 25px; // На вид кружок влезет, а по факту он должен быть больше радиокнопки на 5 px. Почему?
-  // Как сделать кружок внутри radio button крупнее, но по центру? Если увеличиваю размер, кружок съезжает вниз.
-  color: #1976d2;
+        // font-size: 25px; // На вид кружок влезет, а по факту он должен быть больше радиокнопки на 5 px. Почему?
+        // Как сделать кружок внутри radio button крупнее, но по центру? Если увеличиваю размер, кружок съезжает вниз.
+        color: #1976d2;
+      }
+    }
+  }
+
+
 }
 
 .disabled {
   cursor: not-allowed; // Почему не работает (причём у чекбоксов тоже не работает, а у поля ввода работает нормально)?
   pointer-events: none; // Справка: запрещает мыши работу с элементом
-}
 
-.disabled label input + span:before{
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -10px;
-  width: 20px;
-  height: 20px;
+  label input {
+    & + span:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -10px;
+      width: 20px;
+      height: 20px;
 
-  box-shadow: inset 2px 2px 5px gray, 1px 1px 5px #4e4e4e;
-  border: 1px solid #4e4e4e;
-  background-color: #bdbcbc;
-  border-radius: 50%;
-}
+      box-shadow: inset 2px 2px 5px gray, 1px 1px 5px #4e4e4e;
+      border: 1px solid #4e4e4e;
+      background-color: #bdbcbc;
+      border-radius: 50%;
+    }
 
+    &:checked + span:before {
+      border-color: #4e4e4e;
+      box-shadow: inset 2px 2px 5px gray, 1px 1px 5px #4e4e4e;
+      content: '●';
+      text-align: center;
 
-.disabled label input:checked + span:before{
-  border-color: #4e4e4e;
-  box-shadow: inset 2px 2px 5px gray, 1px 1px 5px #4e4e4e;
-  content: '●';
-  text-align: center;
-
-  color: #4e4e4e; //content color
+      color: #4e4e4e; //content color
+    }
+  }
 }

@@ -261,13 +261,14 @@
         <div class="column">
           <form #form="ngForm" (ngSubmit)="submit(form.value)">
             <div>
-              <app-checkbox-control-value-accessor id="checkbox1" name="value1" [(ngModel)]="valueCheckbox1"
+              <app-checkbox-control-value-accessor name="value1" [(ngModel)]="valueCheckbox1"
                                                    [disabled]="disabled"
                                                    class="row"></app-checkbox-control-value-accessor>
-              <app-checkbox-control-value-accessor id="checkbox2" name="value2" [(ngModel)]="valueCheckbox2"
+              <app-checkbox-control-value-accessor name="value2" [(ngModel)]="valueCheckbox2"
                                                    [disabled]="disabled"
                                                    class="row"></app-checkbox-control-value-accessor>
-              <app-checkbox-control-value-accessor id="checkbox3" name="value3" [(ngModel)]="valueCheckbox3"
+              <!-- checkbox-control-value-accessor  -->
+              <app-checkbox-control-value-accessor [formControl]="checkbox3Control"
                                                    [disabled]="disabled"
                                                    class="row"></app-checkbox-control-value-accessor>
             </div>
@@ -275,6 +276,7 @@
         </div>
         <div class="column">
           <pre>{{ form.value | json }}</pre>
+          <div>valueCheckbox3 = {{ checkbox3Control.value }}</div>
         </div>
       </div>
 
@@ -286,18 +288,17 @@
 
       <div class="row">
         <div class="column">
-          <form [formGroup]="frm">
-            <div *ngFor="let item of listRole">
-<!--              <app-radio-button [id]="item.name" [frm]="frm" [label]="item.name" [value]="item.name" cn="selected_value"-->
-<!--                                [disabled]="disabled" class="row"></app-radio-button>-->
+<!--          <form [formGroup]="formRadio">-->
+            <div *ngFor="let item of listRole" class="row">
+
+              <app-radio-button [id]="item.id" [formControl]="radioControl" [label]="item.name" [disabled]="disabled" [ngModel]="item.name" ></app-radio-button>
             </div>
-            <!--            <app-radio-button id="rc1" [frm]="frm" label="Yes" value="Yes" cn="selected_value"></app-radio-button>-->
-            <!--            <app-radio-button id="rc2" [frm]="frm" label="No" value="No" cn="selected_value"></app-radio-button>-->
-          </form>
+<!--          </form>-->
         </div>
         <div class="column">
           <h3>Form Data</h3>
-          <pre>{{frm.value | json}}</pre>
+          <div>radiobuttons value = {{ radioControl.value }}</div>
+<!--          <pre>{{formRadio.value | json}}</pre>-->
         </div>
       </div>
 
@@ -308,7 +309,7 @@
       <div class="row">
         <div class="column">
           <div class="elem_center">
-<!--            <app-dropdown [list]="listRole" [form]="roleForm" firstText="Choose your role" [disabled]="disabled"></app-dropdown>-->
+            <!--            <app-dropdown [list]="listRole" [form]="roleForm" firstText="Choose your role" [disabled]="disabled"></app-dropdown>-->
           </div>
         </div>
         <div class="column">
@@ -326,7 +327,7 @@
       <div class="row dropdownRow">
         <div class="column">
           <div class="elem_center">
-<!--            <app-dropbox-div [list]="listRole" [form]="divRoleForm" firstText="Выберите роль" [disabled]="disabled"></app-dropbox-div>-->
+            <!--            <app-dropbox-div [list]="listRole" [form]="divRoleForm" firstText="Выберите роль" [disabled]="disabled"></app-dropbox-div>-->
           </div>
         </div>
         <div class="column">

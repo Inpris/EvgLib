@@ -1,46 +1,43 @@
-import {Component, OnInit} from '@angular/core';
-import {TButtonSize, TButtonType} from './button/button.component';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrls: ['./app.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class AppComponent implements OnInit {
-  valueCheckbox1: boolean = false;
-  valueCheckbox2: boolean = false;
-  valueCheckbox3: boolean = true;
+  public valueCheckbox1: boolean = false;
+  public valueCheckbox2: boolean = false;
+  public checkbox3Control: FormControl = this._fb.control('true');
 
-  frm: FormGroup;
+  public listRole = [
+    { id: 1, name: 'Admin', choose: false },
+    { id: 2, name: 'Director', choose: false },
+    { id: 3, name: 'Professor', choose: false  },
+    { id: 4, name: 'Student', choose: false  }
+  ];
 
-  roleForm = this._fb.group({
+  public isSpinnerLarge: boolean = false;
+  public isSpinnerDefault: boolean = false;
+  public isSpinnerSmall: boolean = false;
+  public isLoadingPage: boolean = false;
+  public disabled: boolean = false;
+  public page: string = 'nullPage';
+  public checkmark: boolean = false;
+
+  public radioControl: FormControl = this._fb.control(this.listRole[0].name, [Validators.required]);
+
+  public roleForm: FormGroup = this._fb.group({
     roleName: ['', [Validators.required]]
   });
 
-  divRoleForm = this._fb.group({
+  public divRoleForm: FormGroup = this._fb.group({
     divRoleName: ['', [Validators.required]]
   });
   //  public form = new FormGroup({ a: [null] }); // то же самое, но так (через FormBuilder) "изящнее"
-
-  public listRole = [
-    { id: 1, name: 'Admin' },
-    { id: 2, name: 'Director' },
-    { id: 3, name: 'Professor' },
-    { id: 4, name: 'Student' }
-  ];
-
-  type: TButtonType = 'primary';
-  size: TButtonSize = 'large';
-
-  isSpinnerLarge: boolean = false;
-  isSpinnerDefault: boolean = false;
-  isSpinnerSmall: boolean = false;
-  isLoadingPage: boolean = false;
-  disabled: boolean = false;
-  page: string = 'nullPage';
-  checkmark: boolean = false;
 
   public controlInput: FormControl = this._fb.control('');
 
@@ -48,17 +45,14 @@ export class AppComponent implements OnInit {
 
   public ngOnInit() {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
-
-    this.frm = this._fb.group({
-      selected_value: [this.listRole[0].name, Validators.required] // cn in html
-    });
+    this.checkbox3Control.valueChanges.subscribe((v) => console.log(v));
   }
 
   public checkmarkOnChange(mark: boolean): void {
     this.checkmark = mark;
   }
 
-  public submit(value: string){
+  public submit(value: string): void {
   }
 
   public loadLarge(): void {

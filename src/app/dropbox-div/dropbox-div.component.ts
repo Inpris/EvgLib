@@ -1,16 +1,17 @@
-import { Component, Input } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dropbox-div',
   templateUrl: './dropbox-div.component.html',
-  styleUrls: ['./dropbox-div.component.less']
+  styleUrls: ['./dropbox-div.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropboxDivComponent {
   @Input() public disabled: boolean = false;
   @Input() public list = [];
   @Input() public control: FormControl;
-  @Input() public firstText = '';
+  @Input() public firstText: string = '';
   @Input() public value: string;
 
   public isSubmitted: boolean = false;

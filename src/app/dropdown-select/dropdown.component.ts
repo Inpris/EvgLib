@@ -1,16 +1,17 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.less']
+  styleUrls: ['./dropdown.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownComponent {
   @Input() public disabled: boolean = false;
   @Input() public list = [];
   @Input() public control: FormControl;
-  @Input() public firstText = '';
+  @Input() public firstText: string = '';
 
   constructor(private _fb: FormBuilder) {}
 
