@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class AppComponent implements OnInit {
   public valueCheckbox1: boolean = false;
   public valueCheckbox2: boolean = false;
-  public checkbox3Control: FormControl = this._fb.control('true');
 
   public listRole = [
     { id: 1, name: 'Admin', choose: false },
@@ -28,24 +27,22 @@ export class AppComponent implements OnInit {
   public page: string = 'nullPage';
   public checkmark: boolean = false;
 
-  public radioControl: FormControl = this._fb.control(this.listRole[0].name, [Validators.required]);
-
-  public roleForm: FormGroup = this._fb.group({
-    roleName: ['', [Validators.required]]
-  });
-
-  public divRoleForm: FormGroup = this._fb.group({
-    divRoleName: ['', [Validators.required]]
-  });
-  //  public form = new FormGroup({ a: [null] }); // то же самое, но так (через FormBuilder) "изящнее"
-
   public controlInput: FormControl = this._fb.control('');
+  public checkbox3Control: FormControl = this._fb.control('true');
+  public radioControl: FormControl = this._fb.control('', [Validators.required]);
+  public dropDownControl: FormControl = this._fb.control('');
+
+  // public divRoleForm: FormGroup = this._fb.group({
+  //   divRoleName: ['', [Validators.required]]
+  // });
+  //  public form = new FormGroup({ a: [null] }); // то же самое, но так (через FormBuilder) "изящнее"
 
   constructor(private _fb: FormBuilder) {}
 
   public ngOnInit() {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
     this.checkbox3Control.valueChanges.subscribe((v) => console.log(v));
+    this.dropDownControl.valueChanges.subscribe((v) => console.log(v));
   }
 
   public checkmarkOnChange(mark: boolean): void {

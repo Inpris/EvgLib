@@ -1,6 +1,6 @@
 <div class="dropdown" [class.disabled]="disabled">
     <div>{{firstText}}</div>
-    <div class="dropdownBox" *ngIf="isSubmitted" formControlName="divRoleName">
+    <div class="dropdownBox" *ngIf="isSubmitted" formControlName="divRoleName" >
       <div class="dropdownField" *ngFor="let item of list" on-click="setValue($event, item.name)">{{item.name}}</div>
     </div>
     <button (click)="show()" class="dropdownButton">▼</button>

@@ -7,6 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <html>
+<head>
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -95,9 +96,11 @@
   }
 
 </style>
-<!--<head>-->
-<!--  <title></title>-->
-<!--</head>-->
+
+  <title>My app</title>
+</head>
+
+
 <div *ngIf="isLoadingPage" class="spinner_box_block_all">
   <app-spinner spinnerType="endangered_circles"></app-spinner>
 </div>
@@ -267,7 +270,6 @@
               <app-checkbox-control-value-accessor name="value2" [(ngModel)]="valueCheckbox2"
                                                    [disabled]="disabled"
                                                    class="row"></app-checkbox-control-value-accessor>
-              <!-- checkbox-control-value-accessor  -->
               <app-checkbox-control-value-accessor [formControl]="checkbox3Control"
                                                    [disabled]="disabled"
                                                    class="row"></app-checkbox-control-value-accessor>
@@ -288,17 +290,14 @@
 
       <div class="row">
         <div class="column">
-<!--          <form [formGroup]="formRadio">-->
-            <div *ngFor="let item of listRole" class="row">
-
-              <app-radio-button [id]="item.id" [formControl]="radioControl" [label]="item.name" [disabled]="disabled" [ngModel]="item.name" ></app-radio-button>
-            </div>
-<!--          </form>-->
+          <div *ngFor="let item of listRole" class="row">
+            <app-radio-button [id]="item.id" [formControl]="radioControl" [label]="item.name" [disabled]="disabled"
+                              [ngModel]="item.name"></app-radio-button>
+          </div>
         </div>
         <div class="column">
           <h3>Form Data</h3>
           <div>radiobuttons value = {{ radioControl.value }}</div>
-<!--          <pre>{{formRadio.value | json}}</pre>-->
         </div>
       </div>
 
@@ -309,13 +308,13 @@
       <div class="row">
         <div class="column">
           <div class="elem_center">
-            <!--            <app-dropdown [list]="listRole" [form]="roleForm" firstText="Choose your role" [disabled]="disabled"></app-dropdown>-->
+            <app-dropdown [list]="listRole" firstText="Choose your role" [formControl]="dropDownControl" [disabled]="disabled" ngDefaultControl></app-dropdown>
           </div>
         </div>
         <div class="column">
           <div class="elem_center">
             <h3>Form Data</h3>
-            <pre>{{roleForm.value | json}}</pre>
+            <div>dropdown value = {{dropDownControl.value}}</div>
           </div>
         </div>
       </div>
@@ -327,13 +326,13 @@
       <div class="row dropdownRow">
         <div class="column">
           <div class="elem_center">
-            <!--            <app-dropbox-div [list]="listRole" [form]="divRoleForm" firstText="Выберите роль" [disabled]="disabled"></app-dropbox-div>-->
+            <!--<app-dropbox-div [list]="listRole" [form]="divRoleForm" firstText="Выберите роль" [disabled]="disabled"></app-dropbox-div>-->
           </div>
         </div>
         <div class="column">
           <div class="elem_center">
             <h3>Form Data</h3>
-            <pre>{{divRoleForm.value | json}}</pre>
+
           </div>
         </div>
       </div>

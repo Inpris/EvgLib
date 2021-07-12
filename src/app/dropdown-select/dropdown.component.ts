@@ -1,5 +1,15 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {FormBuilder, FormControl} from '@angular/forms';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
+import {ControlValueAccessor} from '@angular/forms';
+import {fromEvent, Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dropdown',
@@ -7,20 +17,47 @@ import {FormBuilder, FormControl} from '@angular/forms';
   styleUrls: ['./dropdown.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DropdownComponent {
+export class DropdownComponent implements ControlValueAccessor, OnDestroy {
+
+  // static idCounter: number = 0; // статические переменные не обнуляются: не инициализируются заново
+
   @Input() public disabled: boolean = false;
   @Input() public list = [];
-  @Input() public control: FormControl;
   @Input() public firstText: string = '';
 
-  constructor(private _fb: FormBuilder) {}
+ // public controlId: string;
+  private dropdown_value: string = ''; // выбранное значение
+  private _destroyed$: Subject<void> = new Subject();
+  private _changeFn: (...args) => any = () => {};
+  private _touchedFn: (...args) => any = () => {};
 
-  public changeRole(event): void {
-    if (!this.disabled) {
-      this.control.setValue(event.target.value, {
-        onlySelf: true,
-        emitEvent: false,
-      });
-    }
+  constructor() {
+    // this.controlId = 'dropdown' + DropdownComponent.idCounter++;
+  }
+
+  public writeValue(text: string): void {
+    this.dropdown_value = text;
+  }
+
+  public registerOnChange(fn: any): void {
+    this._changeFn = fn;
+  }
+
+  public registerOnTouched(fn: any): void {
+    this._touchedFn = fn;
+  }
+
+  public ngOnDestroy() {
+    this._destroyed$.next();
+    this._destroyed$.complete();
+  }
+
+  public onChange(event): void {
+     if (!this.disabled) {
+      this.dropdown_value = event.target.value;
+      console.log('DROPDOWN_VALUE = ', event.target.value);
+      // Справка: target.value - значение элемента DOM (справедливо для полей формы)
+      this._changeFn(event.target.value);
+     }
   }
 }
