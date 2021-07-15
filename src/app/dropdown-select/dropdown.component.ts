@@ -1,21 +1,24 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
-  Component,
-  ElementRef,
+  Component, forwardRef,
   Input,
   OnDestroy,
-  ViewChild
 } from '@angular/core';
-import {ControlValueAccessor} from '@angular/forms';
-import {fromEvent, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DropdownComponent),
+      multi: true
+    }
+  ]
 })
 export class DropdownComponent implements ControlValueAccessor, OnDestroy {
 
@@ -25,7 +28,6 @@ export class DropdownComponent implements ControlValueAccessor, OnDestroy {
   @Input() public list = [];
   @Input() public firstText: string = '';
 
- // public controlId: string;
   private dropdown_value: string = ''; // выбранное значение
   private _destroyed$: Subject<void> = new Subject();
   private _changeFn: (...args) => any = () => {};

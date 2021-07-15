@@ -2,7 +2,7 @@
   <label>
     <select (change)="onChange($event)">
       <option value="" >{{firstText}}&nbsp;</option>
-      <option *ngFor="let item of list" [id]="item.name" [value]="item.name" >{{item.name}}</option>
+      <option *ngFor="let item of list" [attr.id]="item.name" [value]="item.name" >{{item.name}}</option>
     </select>
   </label>
 </div>
