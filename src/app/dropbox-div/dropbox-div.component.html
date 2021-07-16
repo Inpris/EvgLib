@@ -1,7 +1,7 @@
 <div class="dropdown" [class.disabled]="disabled">
     <div>{{firstText}}</div>
-    <div class="dropdownBox" *ngIf="isSubmitted" >
-      <div class="dropdownField" *ngFor="let item of list" on-click="setValue(item.name)">{{item.name}}</div>
+    <div class="dropdown__box" *ngIf="isSubmitted" >
+      <div class="dropdown__field" *ngFor="let item of list" on-click="setValue(item.name)">{{item.name}}</div>
     </div>
-    <button (click)="show()" class="dropdownButton">▼</button>
+    <button (click)="show()">▼</button>
 </div>

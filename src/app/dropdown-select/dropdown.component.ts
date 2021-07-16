@@ -20,22 +20,14 @@ import { Subject } from 'rxjs';
     }
   ]
 })
-export class DropdownComponent implements ControlValueAccessor, OnDestroy {
-
-  // static idCounter: number = 0; // статические переменные не обнуляются: не инициализируются заново
-
+export class DropdownComponent implements ControlValueAccessor {
   @Input() public disabled: boolean = false;
   @Input() public list = [];
   @Input() public firstText: string = '';
 
   private dropdown_value: string = ''; // выбранное значение
-  private _destroyed$: Subject<void> = new Subject();
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
-
-  constructor() {
-    // this.controlId = 'dropdown' + DropdownComponent.idCounter++;
-  }
 
   public writeValue(text: string): void {
     this.dropdown_value = text;
@@ -47,11 +39,6 @@ export class DropdownComponent implements ControlValueAccessor, OnDestroy {
 
   public registerOnTouched(fn: any): void {
     this._touchedFn = fn;
-  }
-
-  public ngOnDestroy() {
-    this._destroyed$.next();
-    this._destroyed$.complete();
   }
 
   public onChange(event): void {
