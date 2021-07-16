@@ -1,6 +1,6 @@
 <div class="b-radio" [class.disabled]="disabled">
   <label>
-    <input id="{{ controlId }}" type="radio" name="radio" [value]="radio_value" (change)="onChange($event)">
+    <input [attr.id]="controlId" type="radio" name="radio" [value]="radio_value" (change)="onChange($event)">
     <span>{{ label }}</span>
   </label>
 </div>

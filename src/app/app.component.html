@@ -291,7 +291,7 @@
       <div class="row">
         <div class="column">
           <div *ngFor="let item of listRole" class="row">
-            <app-radio-button [id]="item.id" [formControl]="radioControl" [label]="item.name" [disabled]="disabled"></app-radio-button>
+            <app-radio-button [attr.id]="item.id" [formControl]="radioControl" [label]="item.name" [disabled]="disabled"></app-radio-button>
           </div>
         </div>
         <div class="column">
@@ -307,8 +307,7 @@
       <div class="row">
         <div class="column">
           <div class="elem_center">
-            <app-dropdown [list]="listRole" firstText="Choose your role" [formControl]="dropDownControl"
-                          [disabled]="disabled"></app-dropdown>
+            <app-dropdown [list]="listRole" firstText="Choose your role" [formControl]="dropDownControl" [disabled]="disabled"></app-dropdown>
           </div>
         </div>
         <div class="column">
@@ -326,13 +325,13 @@
       <div class="row dropdownRow">
         <div class="column">
           <div class="elem_center">
-            <app-dropbox-div [list]="listRole" firstText="Выберите роль" [formControl]="dropDownControl" [disabled]="disabled" ></app-dropbox-div>
+            <app-dropbox-div [list]="listRole" firstText="Выберите роль" [formControl]="dropDownDivControl" [disabled]="disabled" ></app-dropbox-div>
           </div>
         </div>
         <div class="column">
           <div class="elem_center">
             <h3>Form Data</h3>
-            <div>dropdown value = {{dropDownControl.value}}</div>
+            <div>dropdown value = {{dropDownDivControl.value}}</div>
           </div>
         </div>
       </div>

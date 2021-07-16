@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   public checkbox3Control: FormControl = this._fb.control('true');
   public radioControl: FormControl = this._fb.control('', [Validators.required]);
   public dropDownControl: FormControl = this._fb.control('');
+  public dropDownDivControl: FormControl = this._fb.control('');
 
   // public divRoleForm: FormGroup = this._fb.group({
   //   divRoleName: ['', [Validators.required]]
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
     this.checkbox3Control.valueChanges.subscribe((v) => console.log(v));
     this.dropDownControl.valueChanges.subscribe((v) => console.log(v));
+    this.dropDownDivControl.valueChanges.subscribe((v) => console.log(v));
   }
 
   public checkmarkOnChange(mark: boolean): void {
