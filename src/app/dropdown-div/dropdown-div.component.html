@@ -1,5 +1,5 @@
 <div class="dropdown" [class.disabled]="disabled">
-    <div>{{ dropdownValue }}</div>
+    <div>{{ dropdownValue == '' ? firstText : dropdownValue}}</div>
     <div class="dropdown__box" *ngIf="isPushed" >
       <div class="dropdown__field" *ngFor="let item of list" (click)="setValue(item[valueName])">{{ item[valueName] }}</div>
     </div>

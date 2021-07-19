@@ -13,10 +13,10 @@ export class AppComponent implements OnInit {
   public valueCheckbox2: boolean = false;
 
   public listRole = [
-    { id: 1, name: 'Admin', choose: false },
-    { id: 2, name: 'Director', choose: false },
-    { id: 3, name: 'Professor', choose: false  },
-    { id: 4, name: 'Student', choose: false  }
+    { id: 1, name: 'Admin' },
+    { id: 2, name: 'Director' },
+    { id: 3, name: 'Professor' },
+    { id: 4, name: 'Student' }
   ];
 
   public isSpinnerLarge: boolean = false;
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   public controlInput: FormControl = this._fb.control('');
   public checkbox3Control: FormControl = this._fb.control('true');
-  public radioControl: FormControl = this._fb.control('');
+  public radioControl: FormControl = this._fb.control('Admin');
   public dropDownControl: FormControl = this._fb.control('');
   public dropDownDivControl: FormControl = this._fb.control('');
 

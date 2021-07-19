@@ -11,7 +11,7 @@ import {CheckboxControlValueAccessorModule} from './checkbox-control-value-acces
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RadioButtonModule} from './radio-button/radio-button.module';
 import {DropdownModule} from './dropdown-select/dropdown.module';
-import {DropboxDivModule} from './dropbox-div/dropbox-div.module';
+import {DropdownDivModule} from './dropdown-div/dropdown-div.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import {DropboxDivModule} from './dropbox-div/dropbox-div.module';
     CheckboxModule,
     RadioButtonModule,
     DropdownModule,
-    DropboxDivModule,
+    DropdownDivModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

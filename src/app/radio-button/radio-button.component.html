@@ -2,7 +2,12 @@
   <div class="radioBox">
     <div class="b-radio" [class.disabled]="disabled">
       <label>
-        <input [attr.id]="radioId" type="radio" name="radio" [value]="item[valueName]" (change)="onChange($event)">
+        <input [attr.id]="radioId"
+               type="radio"
+               name="radio"
+               [value]="item[valueName]"
+               (change)="onChange($event)"
+               [checked]="isChecked()" >
         <span>{{ item[valueName] }}</span>
       </label>
     </div>

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DropboxDivComponent } from './dropbox-div.component';
+import { DropdownDivComponent } from './dropdown-div.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 
 
 @NgModule({
-  declarations: [DropboxDivComponent],
+  declarations: [DropdownDivComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
   exports: [
-    DropboxDivComponent,
+    DropdownDivComponent,
   ]
 })
-export class DropboxDivModule { }
+export class DropdownDivModule { }
