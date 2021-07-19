@@ -25,12 +25,12 @@ export class DropdownComponent implements ControlValueAccessor {
   @Input() public list = [];
   @Input() public firstText: string = '';
 
-  private dropdown_value: string = ''; // выбранное значение
+  private _dropdown_value: string = ''; // выбранное значение
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
   public writeValue(text: string): void {
-    this.dropdown_value = text;
+    this._dropdown_value = text;
   }
 
   public registerOnChange(fn: any): void {
@@ -43,7 +43,7 @@ export class DropdownComponent implements ControlValueAccessor {
 
   public onChange(event): void {
      if (!this.disabled) {
-      this.dropdown_value = event.target.value;
+      this._dropdown_value = event.target.value;
       console.log('DROPDOWN_VALUE = ', event.target.value);
       // Справка: target.value - значение элемента DOM (справедливо для полей формы)
       this._changeFn(event.target.value);

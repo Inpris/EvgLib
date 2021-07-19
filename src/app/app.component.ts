@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   public controlInput: FormControl = this._fb.control('');
   public checkbox3Control: FormControl = this._fb.control('true');
-  public radioControl: FormControl = this._fb.control('', [Validators.required]);
+  public radioControl: FormControl = this._fb.control('');
   public dropDownControl: FormControl = this._fb.control('');
   public dropDownDivControl: FormControl = this._fb.control('');
 
@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.controlInput.valueChanges.subscribe((v) => console.log(v));
     this.checkbox3Control.valueChanges.subscribe((v) => console.log(v));
+    this.radioControl.valueChanges.subscribe((v) => console.log(v));
     this.dropDownControl.valueChanges.subscribe((v) => console.log(v));
     this.dropDownDivControl.valueChanges.subscribe((v) => console.log(v));
   }

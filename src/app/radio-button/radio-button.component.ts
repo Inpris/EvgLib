@@ -20,9 +20,7 @@ export class RadioButtonComponent implements ControlValueAccessor {
   @Input() public disabled: boolean = false;
   @Input() public label: string;
   public radio_value: string = ''; // выбранное значение
-
   public controlId: string;
-
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
@@ -30,7 +28,7 @@ export class RadioButtonComponent implements ControlValueAccessor {
     this.controlId = 'radio' + RadioButtonComponent.idCounter++;
   }
 
-  public writeValue(value: string) {
+  public writeValue(value: any) {
     this.radio_value = value;
   }
 

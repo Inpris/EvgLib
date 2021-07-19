@@ -21,14 +21,14 @@ export class DropboxDivComponent implements ControlValueAccessor {
   @Input() public firstText: string = '';
 
   public isSubmitted: boolean = false;
-  private dropdown_value: string = ''; // выбранное значение
+  private _dropdown_value: string = ''; // выбранное значение
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
   constructor(private _fb: FormBuilder) {}
 
   public writeValue(text: string): void {
-    this.dropdown_value = text;
+    this._dropdown_value = text;
   }
 
   public registerOnChange(fn: any): void {
@@ -48,7 +48,7 @@ export class DropboxDivComponent implements ControlValueAccessor {
       return;
     }
 
-    this.dropdown_value = itemName;
+    this._dropdown_value = itemName;
     console.log('DROPDOWN_DIV_VALUE = ', itemName);
       // Справка: target.value - значение элемента DOM (справедливо для полей формы)
     this._changeFn(itemName);

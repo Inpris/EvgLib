@@ -48,7 +48,6 @@ export class InputComponent implements ControlValueAccessor, AfterViewInit, OnDe
 
   private _inputText: string = '';
   private _destroyed$: Subject<void> = new Subject();
-
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
