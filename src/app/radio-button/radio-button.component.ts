@@ -23,7 +23,6 @@ export class RadioButtonComponent implements ControlValueAccessor {
 
   public radioValue: string = ''; // выбранное значение
   public radioId: string;
-  private item;
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
