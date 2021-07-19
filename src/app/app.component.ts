@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   public controlInput: FormControl = this._fb.control('');
   public checkbox3Control: FormControl = this._fb.control('true');
-  public radioControl: FormControl = this._fb.control('Admin');
+  public radioControl: FormControl = this._fb.control(this.listRole[1]);
   public dropDownControl: FormControl = this._fb.control('');
   public dropDownDivControl: FormControl = this._fb.control('');
 

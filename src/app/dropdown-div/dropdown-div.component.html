@@ -1,7 +1,8 @@
 <div class="dropdown" [class.disabled]="disabled">
-    <div>{{ dropdownValue == '' ? firstText : dropdownValue}}</div>
+<!--    <div>{{ dropdownValue == '' ? firstText : dropdownValue}}</div>-->
+  <div>{{ dropdownValue || firstText }}</div>
     <div class="dropdown__box" *ngIf="isPushed" >
-      <div class="dropdown__field" *ngFor="let item of list" (click)="setValue(item[valueName])">{{ item[valueName] }}</div>
+      <div class="dropdown__field" *ngFor="let item of list" (click)="setValue(item)">{{ item[valueName] }}</div>
     </div>
-    <button (click)="show()">▼</button>
+    <button (click)="changeVisibility()">▼</button>
 </div>

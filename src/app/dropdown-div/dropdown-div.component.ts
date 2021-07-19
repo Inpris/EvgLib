@@ -31,7 +31,7 @@ export class DropdownDivComponent implements ControlValueAccessor {
   }
 
   public writeValue(value: string): void {
-    this.dropdownValue = value;
+    this.dropdownValue = value[this.valueName];
   }
 
   public registerOnChange(fn: any): void {
@@ -42,22 +42,23 @@ export class DropdownDivComponent implements ControlValueAccessor {
     this._touchedFn = fn;
   }
 
-  public show(): void {
+  public changeVisibility(): void {
     this.isPushed = !this.isPushed;
   }
 
-  public setValue(itemName): void {
-    console.log('DROPDOWN_DIV_VALUE = ', itemName);
-    this._changeFn(itemName);
+  public setValue(item): void {
+    console.log('DROPDOWN_DIV_VALUE = ', item[this.valueName]);
+    this._changeFn(item);
 
-    this.dropdownValue = itemName;
+    this.dropdownValue = item[this.valueName];
     this.isPushed = !this.isPushed;
   }
 
   @HostListener('document:click', ['$event'])
   public clickOut(event) {
     if ( (this.isPushed === true) && !(this.eRef.nativeElement.contains(event.target)) ) {
-      this.isPushed = false;
+      // this.isPushed = false;
+      this.changeVisibility();
       console.log('clicked outside');
     }
   }

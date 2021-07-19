@@ -5,8 +5,8 @@
         <input [attr.id]="radioId"
                type="radio"
                name="radio"
-               [value]="item[valueName]"
-               (change)="onChange($event)"
+               [value]="item"
+               (change)="onChange(item)"
                [checked]="isChecked(item[valueName])" >
         <span>{{ item[valueName] }}</span>
       </label>
