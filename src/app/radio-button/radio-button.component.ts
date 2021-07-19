@@ -24,8 +24,12 @@ export class RadioButtonComponent implements ControlValueAccessor {
   public radioValue: string = ''; // выбранное значение
   public radioId: string;
   // public checked: boolean = false;
+  private _div: any;
+  private value;
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
+
+
 
   constructor() {
     this.radioId = 'radio' + RadioButtonComponent.idCounter++;
@@ -51,8 +55,7 @@ export class RadioButtonComponent implements ControlValueAccessor {
     this.radioValue = event.target.value;
   }
 
-  public isChecked(): boolean {
-    return ;
-    // event.target.value === this.radioValue;
+  public isChecked(name: string): boolean {
+    return name === this.radioValue;
   }
 }

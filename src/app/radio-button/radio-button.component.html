@@ -7,7 +7,7 @@
                name="radio"
                [value]="item[valueName]"
                (change)="onChange($event)"
-               [checked]="isChecked()" >
+               [checked]="isChecked(item[valueName])" >
         <span>{{ item[valueName] }}</span>
       </label>
     </div>
