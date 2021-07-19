@@ -18,18 +18,19 @@ export class RadioButtonComponent implements ControlValueAccessor {
   static idCounter: number = 0;
 
   @Input() public disabled: boolean = false;
-  @Input() public label: string;
-  public radio_value: string = ''; // выбранное значение
-  public controlId: string;
+  @Input() public list = [];
+  @Input() public valueName: string = '';
+
+  public radioValue: string = ''; // выбранное значение
+  public radioId: string;
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
   constructor() {
-    this.controlId = 'radio' + RadioButtonComponent.idCounter++;
+    this.radioId = 'radio' + RadioButtonComponent.idCounter++;
   }
 
   public writeValue(value: any) {
-    this.radio_value = value;
   }
 
   public registerOnChange(fn: any) {
@@ -41,7 +42,6 @@ export class RadioButtonComponent implements ControlValueAccessor {
   }
 
   public onChange(event): void {
-    this.radio_value = event.target.value;
     console.log('RADIO_VALUE = ', event.target.value);
     // Справка: target.value - значение элемента DOM (справедливо для полей формы)
     this._changeFn(event.target.value);

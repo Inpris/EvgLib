@@ -1,6 +1,10 @@
-<div class="b-radio" [class.disabled]="disabled">
-  <label>
-    <input [attr.id]="controlId" type="radio" name="radio" [value]="radio_value" (change)="onChange($event)">
-    <span>{{ label }}</span>
-  </label>
+<div *ngFor="let item of list" class="row">
+  <div class="radioBox">
+    <div class="b-radio" [class.disabled]="disabled">
+      <label>
+        <input [attr.id]="radioId" type="radio" name="radio" [value]="item[valueName]" (change)="onChange($event)">
+        <span>{{ item[valueName] }}</span>
+      </label>
+    </div>
+  </div>
 </div>

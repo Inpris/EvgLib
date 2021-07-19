@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, forwardRef, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 
@@ -15,20 +15,27 @@ import {Subject} from 'rxjs';
     }
   ]
 })
-export class DropboxDivComponent implements ControlValueAccessor {
+export class DropboxDivComponent implements ControlValueAccessor, OnInit {
   @Input() public disabled: boolean = false;
   @Input() public list = [];
   @Input() public firstText: string = '';
+  @Input() public valueName: string = '';
 
-  public isSubmitted: boolean = false;
-  private _dropdown_value: string = ''; // выбранное значение
+  public isPushed: boolean = false;
+  public dropdownValue: string = ''; // выбранное значение
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
-  constructor(private _fb: FormBuilder) {}
+  public ngOnInit() {
+    if (this.dropdownValue === ''){
+      this.dropdownValue = this.firstText;
+      console.log('DROPDOWN_firstText = ', this.firstText);
+      console.log('DROPDOWN_dropdownValue = ', this.dropdownValue);
+    }
+  }
 
   public writeValue(text: string): void {
-    this._dropdown_value = text;
+    this.dropdownValue = text;
   }
 
   public registerOnChange(fn: any): void {
@@ -40,21 +47,16 @@ export class DropboxDivComponent implements ControlValueAccessor {
   }
 
   public show(): void {
-    this.isSubmitted = !this.isSubmitted;
+    this.isPushed = !this.isPushed;
   }
 
   public setValue(itemName): void {
-    if (this.disabled) {
-      return;
-    }
-
-    this._dropdown_value = itemName;
     console.log('DROPDOWN_DIV_VALUE = ', itemName);
       // Справка: target.value - значение элемента DOM (справедливо для полей формы)
     this._changeFn(itemName);
 
-    this.firstText = itemName;
-    this.isSubmitted = !this.isSubmitted;
+    this.dropdownValue = itemName;
+    this.isPushed = !this.isPushed;
   }
 
 }
