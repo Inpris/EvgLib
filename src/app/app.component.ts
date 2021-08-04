@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
   public radioControl: FormControl = this._fb.control(this.listRole[0]);
   public dropDownControl: FormControl = this._fb.control('');
   public dropDownDivControl: FormControl = this._fb.control('');
+  public menuControl: FormControl = this._fb.control('');
 
   // public divRoleForm: FormGroup = this._fb.group({
   //   divRoleName: ['', [Validators.required]]
@@ -56,6 +57,7 @@ export class AppComponent implements OnInit {
     this.radioControl.valueChanges.subscribe((v) => console.log(v));
     this.dropDownControl.valueChanges.subscribe((v) => console.log(v));
     this.dropDownDivControl.valueChanges.subscribe((v) => console.log(v));
+    this.menuControl.valueChanges.subscribe((v) => console.log(v));
   }
 
   public checkmarkOnChange(mark: boolean): void {

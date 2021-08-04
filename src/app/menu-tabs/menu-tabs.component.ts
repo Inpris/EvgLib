@@ -1,21 +1,25 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ControlValueAccessor} from '@angular/forms';
+import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-menu-tabs',
   templateUrl: './menu-tabs.component.html',
-  styleUrls: ['./menu-tabs.component.less']
+  styleUrls: ['./menu-tabs.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MenuTabsComponent),
+      multi: true
+    }
+  ]
 })
 export class MenuTabsComponent implements ControlValueAccessor {
   @Input() public disabled: boolean = false;
   @Input() public tabs = [];
   @Input() public valueName: string = '';
 
-  public isPushed: boolean = false;
   public menuTabValue: string = ''; // выбранное значение
-  public tabContent;
-  public tabLinks;
-
   private _changeFn: (...args) => any = () => {};
   private _touchedFn: (...args) => any = () => {};
 
@@ -33,32 +37,10 @@ export class MenuTabsComponent implements ControlValueAccessor {
     this._touchedFn = fn;
   }
 
-  public changeVisibility(): void {
-    this.isPushed = !this.isPushed;
+  public setValue(tab): void {
+    console.log('menuTabValue = ', tab[this.valueName]);
+    this._changeFn(tab);
+
+    this.menuTabValue = tab[this.valueName];
   }
-
-  public setValue(item): void {
-    console.log('DROPDOWN_DIV_VALUE = ', item[this.valueName]);
-    this._changeFn(item);
-
-    this.menuTabValue = item[this.valueName];
-    this.isPushed = !this.isPushed;
-  }
-
-  public openCity(event) {
-    // this.tabContent = document.getElementsByClassName('tabContent');
-    //
-    // for ( let i in this.tabContent.length ) { //
-    //   this.tabContent[i].style.display = 'none';
-    // }
-    //
-    // this.tabLinks = document.getElementsByClassName('tablinks');
-    //
-    // for (let i in this.tabLinks.length) {
-    //   this.tabLinks[i].className = this.tabLinks[i].className.replace(' active', '');
-    // }
-    // document.getElementById(cityName).style.display = 'block';
-    // event.currentTarget.className += ' active';
-  }
-
 }

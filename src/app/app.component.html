@@ -107,16 +107,89 @@
 
 <div class="BiggestDiv">
   <div [class]="page">
-
-    <app-menu-tabs [tabs]="formsList" [disabled]="disabled" valueName="name"></app-menu-tabs>
-
     <div class="content" role="main">
+
+      <div class="row">
+        <div class="elem_center">
+          <app-menu-tabs [tabs]="formsList" [disabled]="disabled" valueName="name"
+                         [formControl]="menuControl"></app-menu-tabs>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="menuControl.value.name === 'О программе'">
+        <div class="column">
+          <div class="elem_center">
+            <b>Экран 1</b>
+            <app-button size="default" type="primary" [disabled]="disabled">Добавить изображение</app-button>
+            <br/>
+
+            <p>Описание сайта 1</p>
+            <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+            <br/>
+
+            <p>Описание сайта 2</p>
+            <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+            <br/>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="elem_center">
+            <b>Экран 2</b>
+            <app-button size="default" type="primary" [disabled]="disabled">Добавить видеоинструкцию</app-button>
+            <br/>
+
+            <b>Экран 3</b>
+            <app-button size="default" type="primary" [disabled]="disabled">Добавить фото врача</app-button>
+            <br/>
+
+            <b>Экран 4</b>
+            <app-button size="default" type="primary" [disabled]="disabled">Добавить видео</app-button>
+            <br/>
+
+            <b>Экран 5</b>
+            <app-button size="default" type="primary" [disabled]="disabled">Добавить видео</app-button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="menuControl.value.name === 'Тарифы'">
+        <div class="elem_center">
+          <p>Описание тарифов перед таблицей</p>
+          <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+          <br/>
+          <p>Здесь будет таблица</p>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="menuControl.value.name === 'Отзывы'">
+        <div class="elem_center">
+          <app-button size="default" type="primary" [disabled]="disabled">Добавить отзыв</app-button>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="menuControl.value.name === 'FAQ'">
+        <div class="elem_center">
+          <p>Формулировка вопроса</p>
+          <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+          <br/>
+          <p>Формулировка ответа</p>
+          <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+          <br/>
+          <app-button size="default" type="primary" [disabled]="disabled">Добавить вопрос</app-button>
+        </div>
+      </div>
+
+      <!--      <div class="row">-->
+      <!--        <div class="elem_center">-->
+      <!--          <h3>Form Data</h3>-->
+      <!--          <div>menuControl value = {{menuControl.value.name}}</div>-->
+      <!--        </div>-->
+      <!--      </div>-->
 
       <div class="row">
         <div class="column">
           <h3 class="elem_center">Primary buttons</h3>
-
-          <!--          [disabled]="disabled"-->
           <div class="row">
             <div class="elem_center">
               <app-button size="large" type="primary" [disabled]="disabled">Large / Primary</app-button>
@@ -292,7 +365,6 @@
           <app-radio-button [list]="listRole" valueName="name" [formControl]="radioControl"
                             [disabled]="disabled"></app-radio-button>
         </div>
-
         <div class="column">
           <h3>Form Data</h3>
           <div>radiobuttons value = {{ radioControl.value.name }}</div>
