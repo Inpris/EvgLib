@@ -1,0 +1,36 @@
+.menu-tab {
+
+  &__box {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__box:hover {
+    border-bottom: 2px solid #1976d2;
+  }
+
+  &__field {
+
+  }
+
+  p { // ne rabotaet
+    font-size: 12px;
+    font-weight: bolder;
+  }
+}
+
+.tabContent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.disabled {
+  pointer-events: none;
+  border: 1px solid #4e4e4e;
+  background-color: #bdbcbc;
+  cursor: not-allowed;
+}

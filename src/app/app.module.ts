@@ -12,10 +12,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RadioButtonModule} from './radio-button/radio-button.module';
 import {DropdownModule} from './dropdown-select/dropdown.module';
 import {DropdownDivModule} from './dropdown-div/dropdown-div.module';
+import {MenuTabsModule} from './menu-tabs/menu-tabs.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,7 @@ import {DropdownDivModule} from './dropdown-div/dropdown-div.module';
     RadioButtonModule,
     DropdownModule,
     DropdownDivModule,
+    MenuTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

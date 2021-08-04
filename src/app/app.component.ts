@@ -19,6 +19,16 @@ export class AppComponent implements OnInit {
     { id: 4, name: 'Student' }
   ];
 
+  public formsList = [
+    { id: 1, name: 'О программе' },
+    { id: 2, name: 'Тарифы' },
+    { id: 3, name: 'Отзывы' },
+    { id: 4, name: 'FAQ' },
+    { id: 5, name: 'Стать партнером' },
+    { id: 6, name: 'Техподдержка' },
+    { id: 7, name: 'Контакты'}
+  ];
+
   public isSpinnerLarge: boolean = false;
   public isSpinnerDefault: boolean = false;
   public isSpinnerSmall: boolean = false;

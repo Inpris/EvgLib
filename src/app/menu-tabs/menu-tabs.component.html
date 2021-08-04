@@ -1,0 +1,11 @@
+<div class="menu-tabs__field" >
+
+  <div class="menu-tab__box" [class.disabled]="disabled" *ngFor="let tab of tabs" (click)="setValue(tab)">
+    <p>
+      {{ tab[valueName] }}
+      <ng-content></ng-content>
+    </p>
+<!--    здесь название страницы в зависимости от имени формы-->
+  </div>
+</div>
+
