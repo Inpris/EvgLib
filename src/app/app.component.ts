@@ -29,6 +29,15 @@ export class AppComponent implements OnInit {
     { id: 7, name: 'Контакты'}
   ];
 
+  public tariffs = [
+    {amount: 'Количество рентгенов', time: 'Время действия', price: 'Стоимость, руб.', link: 'Ссылка на преобретение'},
+    {amount: 1, time: '1 месяц', price: 700, link: 'Купить'},
+    {amount: 10, time: '1 месяц', price: 6500, link: 'Зарегистрироваться'},
+    {amount: 20, time: '1 месяц', price: 11000, link: 'Зарегистрироваться'},
+    {amount: 50, time: '2 месяца', price: 22500, link: 'Зарегистрироваться'},
+    {amount: 100, time: '2 месяца', price: 40000, link: 'Зарегистрироваться'},
+  ];
+
   public isSpinnerLarge: boolean = false;
   public isSpinnerDefault: boolean = false;
   public isSpinnerSmall: boolean = false;
@@ -42,7 +51,7 @@ export class AppComponent implements OnInit {
   public radioControl: FormControl = this._fb.control(this.listRole[0]);
   public dropDownControl: FormControl = this._fb.control('');
   public dropDownDivControl: FormControl = this._fb.control('');
-  public menuControl: FormControl = this._fb.control('');
+  public menuControl: FormControl = this._fb.control({ id: 1, name: 'О программе' });
 
   // public divRoleForm: FormGroup = this._fb.group({
   //   divRoleName: ['', [Validators.required]]
@@ -58,6 +67,7 @@ export class AppComponent implements OnInit {
     this.dropDownControl.valueChanges.subscribe((v) => console.log(v));
     this.dropDownDivControl.valueChanges.subscribe((v) => console.log(v));
     this.menuControl.valueChanges.subscribe((v) => console.log(v));
+
   }
 
   public checkmarkOnChange(mark: boolean): void {
