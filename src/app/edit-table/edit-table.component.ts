@@ -20,7 +20,7 @@ export class EditTableComponent implements ControlValueAccessor {
   @Input() public disabled: boolean = false;
   @Input() public listHead = [ 'Количество рентгенов',  'Время действия',  'Стоимость, руб.',  'Ссылка на преобретение' ];
   @Input() public columnNumber: number = 2;
-  @Input() public listData = [
+  @Input() public listData = [  // компонент будет работать, только если у объектав свойства записаны цифрами
     { 0: 1, 1: '1 месяц', 2: 700, 3: 'Купить'},
     { 0: 10, 1: '1 месяц', 2: 6500, 3: 'Зарегистрироваться'},
     { 0: 20, 1: '1 месяц', 2: 11000, 3: 'Зарегистрироваться'},
