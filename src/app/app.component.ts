@@ -11,6 +11,8 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 export class AppComponent implements OnInit {
   public valueCheckbox1: boolean = false;
   public valueCheckbox2: boolean = false;
+  public url: string = '';
+  public reader = new FileReader();
 
   public listRole = [
     { id: 1, name: 'Admin' },
@@ -30,13 +32,13 @@ export class AppComponent implements OnInit {
   ];
 
   public tariffs = [
-    {amount: 'Количество рентгенов', time: 'Время действия', price: 'Стоимость, руб.', link: 'Ссылка на преобретение'},
-    {amount: 1, time: '1 месяц', price: 700, link: 'Купить'},
-    {amount: 10, time: '1 месяц', price: 6500, link: 'Зарегистрироваться'},
-    {amount: 20, time: '1 месяц', price: 11000, link: 'Зарегистрироваться'},
-    {amount: 50, time: '2 месяца', price: 22500, link: 'Зарегистрироваться'},
-    {amount: 100, time: '2 месяца', price: 40000, link: 'Зарегистрироваться'},
+    { amount: 1, time: '1 месяц', price: 700, link: 'Купить'},
+    { amount: 10, time: '1 месяц', price: 6500, link: 'Зарегистрироваться'},
+    { amount: 20, time: '1 месяц', price: 11000, link: 'Зарегистрироваться'},
+    { amount: 50, time: '2 месяца', price: 22500, link: 'Зарегистрироваться'},
+    { amount: 100, time: '2 месяца', price: 40000, link: 'Зарегистрироваться'},
   ];
+  public listHead = [ 'Количество рентгенов',  'Время действия',  'Стоимость, руб.',  'Ссылка на преобретение' ];
 
   public isSpinnerLarge: boolean = false;
   public isSpinnerDefault: boolean = false;
@@ -68,6 +70,17 @@ export class AppComponent implements OnInit {
     this.dropDownDivControl.valueChanges.subscribe((v) => console.log(v));
     this.menuControl.valueChanges.subscribe((v) => console.log(v));
 
+  }
+
+  public onSelectFile(event) { // called each time file input changes
+    if (event.target.files && event.target.files[0]) {
+
+      this.reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      // this.reader.onload = (event) => { // called once readAsDataURL is completed
+      //   this.url = event.target.result;
+      // };
+    }
   }
 
   public checkmarkOnChange(mark: boolean): void {

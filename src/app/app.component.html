@@ -121,7 +121,9 @@
           <div class="column">
             <div class="elem_center">
               <b class="elem_center">Экран 1</b>
-              <app-button size="large" type="primary" [disabled]="disabled">Добавить изображение</app-button>
+<!--              <app-button size="large" type="primary" [disabled]="disabled">Добавить изображение</app-button>-->
+<!--              <img [src]="url" height="200"/> <br/>-->
+              <input type='file' (change)="onSelectFile($event)">
               <br/>
 
               <p class="elem_center">Описание сайта 1</p>
@@ -161,17 +163,19 @@
         <div class="row" *ngIf="menuControl.value.name === 'Тарифы'">
           <div class="elem_center">
             <div>
-            <p>Описание тарифов перед таблицей</p>
-            <app-input [formControl]="controlInput" [disabled]="disabled" ></app-input>
+              <p>Описание тарифов перед таблицей</p>
+              <app-input [formControl]="controlInput" [disabled]="disabled" ></app-input>
             </div>
             <br/>
-            <div style="border: 1px solid black">
-            <tr *ngFor="let tariff of tariffs">
-              <td>{{tariff.amount}}</td>
-              <td>{{tariff.time}}</td>
-              <td>{{tariff.price}}</td>
-              <td>{{tariff.link}}</td>
-            </tr>
+            <div>
+<!--            <tr *ngFor="let tariff of tariffs">-->
+<!--              <td contenteditable="true">{{tariff.amount}}</td>-->
+<!--              <td contenteditable="true">{{tariff.time}}</td>-->
+<!--              <td contenteditable="true">{{tariff.price}}</td>-->
+<!--              <td contenteditable="true">{{tariff.link}}</td>-->
+<!--            </tr>-->
+              <app-edit-table></app-edit-table>
+
             </div>
           </div>
         </div>

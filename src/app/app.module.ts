@@ -13,27 +13,29 @@ import {RadioButtonModule} from './radio-button/radio-button.module';
 import {DropdownModule} from './dropdown-select/dropdown.module';
 import {DropdownDivModule} from './dropdown-div/dropdown-div.module';
 import {MenuTabsModule} from './menu-tabs/menu-tabs.module';
+import {EditTableModule} from './edit-table/edit-table.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+        ReactiveFormsModule,
 
-    ButtonModule,
-    SpinnerModule,
-    InputModule,
-    CheckboxControlValueAccessorModule,
-    CheckboxModule,
-    RadioButtonModule,
-    DropdownModule,
-    DropdownDivModule,
-    MenuTabsModule,
-  ],
+        ButtonModule,
+        SpinnerModule,
+        InputModule,
+        CheckboxControlValueAccessorModule,
+        CheckboxModule,
+        RadioButtonModule,
+        DropdownModule,
+        DropdownDivModule,
+        MenuTabsModule,
+        EditTableModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
