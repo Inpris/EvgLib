@@ -1,8 +1,9 @@
 <table>
-<tr *ngFor="let head of listHead">
-  <th>{{head}}</th>
+<tr >
+  <th *ngFor="let head of listHead">{{head}}</th>
 </tr>
 <tr *ngFor="let information of listData">
-  <td *ngFor="let head of listHead; let i = index;" contenteditable="true" [id]="getRowId()">{{information.values(information)[i]}}</td>
+  <td *ngFor="let head of listHead; let i = index;" contenteditable="true" [id]="getRowId()">{{information[i]}}</td>
+<!--  *ngFor="let head of listHead; let i = index;"-->
 </tr>
 </table>
