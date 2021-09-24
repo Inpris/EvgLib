@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import {ButtonComponent} from './button.component';
 import {SpinnerModule} from '../spinner/spinner.module';
 
-
-
 @NgModule({
   declarations: [ButtonComponent],
   imports: [

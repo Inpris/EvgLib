@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-table',
@@ -14,49 +14,86 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     }
   ]
 })
-export class EditTableComponent implements ControlValueAccessor {
+export class EditTableComponent implements OnInit {
   static idCounter: number = 0;
 
   @Input() public disabled: boolean = false;
   @Input() public listHead = [ 'Количество рентгенов',  'Время действия',  'Стоимость, руб.',  'Ссылка на преобретение' ];
-  @Input() public columnNumber: number = 2;
-  @Input() public listData = [  // компонент будет работать, только если у объектав свойства записаны цифрами
-    { 0: 1, 1: '1 месяц', 2: 700, 3: 'Купить'},
-    { 0: 10, 1: '1 месяц', 2: 6500, 3: 'Зарегистрироваться'},
-    { 0: 20, 1: '1 месяц', 2: 11000, 3: 'Зарегистрироваться'},
-    { 0: 50, 1: '2 месяца', 2: 22500, 3: 'Зарегистрироваться'},
-    { 0: 100, 1: '2 месяца', 2: 40000, 3: 'Зарегистрироваться'},
-  ];
+  @Input() public columnNumber: number;
+  @Input() public listData = [];
+  @Input() public needDeleteAndAddRows: boolean = true;
 
+  userTable: FormGroup;
+  control: FormArray;
+  mode: boolean;
+  touchedRows: any;
 
-
+  public listElementsId = [];
   public editableValue = [];
 
-  private _changeFn: (...args) => any = () => {};
-  private _touchedFn: (...args) => any = () => {};
+  constructor(private fb: FormBuilder) { }
 
-  constructor() { }
-
-  public writeValue(value): void {
-    this.editableValue = value;
+  ngOnInit(): void {
+    this.touchedRows = [];
+    this.userTable = this.fb.group({
+      tableRows: this.fb.array([])
+    });
+    this.addRow();
   }
 
-  public registerOnChange(fn: any): void {
-    this._changeFn = fn;
+  ngAfterOnInit() {
+    this.control = this.userTable.get('tableRows') as FormArray;
   }
 
-  public registerOnTouched(fn: any): void {
-    this._touchedFn = fn;
+  initiateForm(): FormGroup {
+    return this.fb.group({
+      name: [''],
+      email: [''],
+      dob: [''],
+      bloodGroup: [''],
+      mobNumber: [''],
+      isEditable: [true]
+    });
   }
 
-  public setValue(item): void {
-    console.log('editableValue = ', item);
-
-    this._changeFn(item);
-    this.editableValue = item;
+  addRow() {
+    if (this.needDeleteAndAddRows) {
+      const control = this.userTable.get('tableRows') as FormArray;
+      control.push(this.initiateForm());
+    }
   }
 
-  public getRowId() {
-    return 'row' + EditTableComponent.idCounter++;
+  deleteRow(index: number) {
+    if (this.needDeleteAndAddRows) {
+      const control =  this.userTable.get('tableRows') as FormArray;
+      control.removeAt(index);
+    }
+  }
+
+  editRow(group: FormGroup) {
+    group.get('isEditable').setValue(true);
+  }
+
+  doneRow(group: FormGroup) {
+    group.get('isEditable').setValue(false);
+  }
+
+  saveUserDetails() {
+    console.log(this.userTable.value);
+  }
+
+  get getFormControls() {
+    const control = this.userTable.get('tableRows') as FormArray;
+    return control;
+  }
+
+  submitForm() {
+    const control = this.userTable.get('tableRows') as FormArray;
+    this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
+    console.log(this.touchedRows);
+  }
+
+  toggleTheme() {
+    this.mode = !this.mode;
   }
 }

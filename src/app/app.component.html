@@ -168,13 +168,8 @@
             </div>
             <br/>
             <div>
-<!--            <tr *ngFor="let tariff of tariffs">-->
-<!--              <td contenteditable="true">{{tariff.amount}}</td>-->
-<!--              <td contenteditable="true">{{tariff.time}}</td>-->
-<!--              <td contenteditable="true">{{tariff.price}}</td>-->
-<!--              <td contenteditable="true">{{tariff.link}}</td>-->
-<!--            </tr>-->
-              <app-edit-table></app-edit-table>
+
+              <app-edit-table [listData]="tariffs" [listHead]="listHead" [disabled]="disabled"></app-edit-table>
 
             </div>
           </div>
@@ -356,7 +351,7 @@
 
       <div class="row">
         <!-- input -->
-        <app-input [formControl]="controlInput" [disabled]="disabled"></app-input>
+        <app-input type="default" [formControl]="controlInput" [disabled]="disabled"></app-input>
         <div>{{ controlInput.value }}</div>
       </div>
 

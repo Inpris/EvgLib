@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -32,12 +32,22 @@ export class AppComponent implements OnInit {
   ];
 
   public tariffs = [
-    { amount: 1, time: '1 месяц', price: 700, link: 'Купить'},
-    { amount: 10, time: '1 месяц', price: 6500, link: 'Зарегистрироваться'},
-    { amount: 20, time: '1 месяц', price: 11000, link: 'Зарегистрироваться'},
-    { amount: 50, time: '2 месяца', price: 22500, link: 'Зарегистрироваться'},
-    { amount: 100, time: '2 месяца', price: 40000, link: 'Зарегистрироваться'},
+    [ 1, '1 месяц', 700, 'Купить'],
+    [ 10, '1 месяц', 6500, 'Зарегистрироваться'],
+    [ 20, '1 месяц', 11000, 'Зарегистрироваться'],
+    [ 50, '2 месяца', 22500, 'Зарегистрироваться'],
+    [ 100, '2 месяца', 40000, 'Зарегистрироваться']
   ];
+
+  formTariffs = this._fb.group({
+    // other form controls...
+      tariffsFbArray: this._fb.array([])
+  });
+
+  get tariffsFb() {
+    return this.formTariffs.controls.tariffsFbArray as FormArray;
+  }
+
   public listHead = [ 'Количество рентгенов',  'Время действия',  'Стоимость, руб.',  'Ссылка на преобретение' ];
 
   public isSpinnerLarge: boolean = false;
